@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScalePod AI — Your AI-Powered POD Command Center</title>
+    <meta name="description" content="AI agents that design, mockup, write copy, and publish your print-on-demand products to Etsy. Stop designing. Start scaling.">
+    <meta property="og:title" content="ScalePod AI — Your AI-Powered POD Command Center">
+    <meta property="og:description" content="AI agents that design, mockup, write copy, and publish your POD products to Etsy — while you sleep.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scalepod.ai">
+    <meta property="og:image" content="https://scalepod.ai/images/og-banner.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F172A'/%3E%3Cpath d='M10 22V14l6-4 6 4v8' stroke='%2306B6D4' stroke-width='2' fill='none'/%3E%3Cpath d='M16 10v-3m0 0l3 2m-3-2l-3 2' stroke='%2322C55E' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --midnight: #0F172A;
+            --navy: #1E293B;
+            --navy-light: #334155;
+            --cyan: #06B6D4;
+            --blue: #3B82F6;
+            --green: #22C55E;
+            --amber: #F59E0B;
+            --emerald: #10B981;
+            --red: #EF4444;
+            --slate-400: #94A3B8;
+            --slate-300: #CBD5E1;
+            --slate-100: #F1F5F9;
+            --white: #F8FAFC;
+            --gradient-cyan: linear-gradient(135deg, #06B6D4, #3B82F6);
+            --gradient-green: linear-gradient(135deg, #22C55E, #06B6D4);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.15);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--midnight);
+            color: var(--slate-300);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--cyan); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--blue); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ========== NAV ========== */
+        nav {
+            position: fixed; top: 16px; left: 16px; right: 16px; z-index: 100;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(6, 182, 212, 0.08);
+            border-radius: var(--radius-lg);
+            max-width: 1200px; margin: 0 auto;
+        }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 24px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .logo-mark {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: var(--gradient-cyan); display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .logo-mark svg { width: 20px; height: 20px; }
+        .logo-text { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+        .logo-text span { color: var(--cyan); }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            color: var(--slate-300); font-size: 14px; font-weight: 500;
+            transition: color 0.2s; cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .btn-nav {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--gradient-green); color: var(--midnight);
+            padding: 9px 20px; border-radius: 10px;
+            font-weight: 700; font-size: 14px; border: none; cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-nav:hover { opacity: 0.9; transform: translateY(-1px); color: var(--midnight); }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mobile-toggle svg { width: 24px; height: 24px; stroke: var(--white); }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 180px 0 100px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-glow {
+            position: absolute; top: -300px; left: 50%; transform: translateX(-50%);
+            width: 900px; height: 900px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 100px; padding: 7px 18px; margin-bottom: 28px;
+            font-size: 13px; color: var(--green); font-weight: 600;
+        }
+        .badge-dot {
+            width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 76px); font-weight: 800; line-height: 1.04;
+            color: var(--white); margin-bottom: 24px; letter-spacing: -0.03em;
+        }
+        .hero h1 .accent {
+            background: var(--gradient-cyan); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-sub {
+            font-size: clamp(17px, 2vw, 21px); max-width: 620px; margin: 0 auto 40px;
+            color: var(--slate-300); line-height: 1.7;
+        }
+        .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--gradient-green); color: var(--midnight);
+            padding: 15px 32px; border-radius: var(--radius);
+            font-weight: 700; font-size: 16px; border: none; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 24px rgba(34, 197, 94, 0.25);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.35); }
+        .btn-primary svg { width: 18px; height: 18px; }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--white);
+            padding: 15px 32px; border-radius: var(--radius);
+            font-weight: 600; font-size: 16px;
+            border: 1px solid var(--navy-light); cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--cyan); background: rgba(6, 182, 212, 0.04); }
+        .btn-secondary svg { width: 18px; height: 18px; stroke: var(--cyan); }
+
+        /* ========== HERO IMAGE ========== */
+        .hero-image {
+            margin-top: 64px; position: relative;
+            max-width: 960px; margin-left: auto; margin-right: auto;
+        }
+        .hero-image-placeholder {
+            width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-xl);
+            background: var(--navy); border: 1px solid rgba(6, 182, 212, 0.1);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative;
+        }
+        .hero-image-placeholder img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .hero-image-fallback {
+            display: flex; flex-direction: column; align-items: center; gap: 12px;
+            color: var(--slate-400); font-size: 14px;
+        }
+        .hero-image-fallback svg { width: 48px; height: 48px; stroke: var(--navy-light); }
+        .hero-glow-bottom {
+            position: absolute; bottom: -2px; left: 0; right: 0; height: 120px;
+            background: linear-gradient(to top, var(--midnight), transparent);
+            pointer-events: none;
+        }
+
+        /* ========== STATS ========== */
+        .stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+            background: rgba(6, 182, 212, 0.08); border-radius: var(--radius-lg);
+            overflow: hidden; margin: 80px auto 0; max-width: 900px;
+        }
+        .stat { background: var(--navy); padding: 32px 24px; text-align: center; }
+        .stat-value {
+            font-size: 36px; font-weight: 800; color: var(--white);
+            font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em;
+        }
+        .stat-value .cyan { color: var(--cyan); }
+        .stat-label { font-size: 13px; color: var(--slate-400); margin-top: 6px; font-weight: 500; }
+
+        /* ========== SECTION COMMON ========== */
+        section { padding: 100px 0; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--cyan); margin-bottom: 14px;
+        }
+        .section-label svg { width: 16px; height: 16px; }
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--white);
+            line-height: 1.1; margin-bottom: 14px; letter-spacing: -0.02em;
+        }
+        .section-sub {
+            font-size: 17px; color: var(--slate-300); max-width: 580px; margin-bottom: 48px; line-height: 1.7;
+        }
+
+        /* ========== PIPELINE ========== */
+        .pipeline-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .pipe-card {
+            background: var(--navy); border: 1px solid rgba(6, 182, 212, 0.06);
+            border-radius: var(--radius-lg); padding: 28px;
+            transition: border-color 0.25s, transform 0.25s; cursor: default;
+        }
+        .pipe-card:hover { border-color: rgba(6, 182, 212, 0.2); transform: translateY(-4px); }
+        .pipe-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(6, 182, 212, 0.08); color: var(--cyan);
+            font-weight: 700; font-size: 14px; font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 16px;
+        }
+        .pipe-card h3 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        .pipe-card p { font-size: 14px; color: var(--slate-300); line-height: 1.65; }
+        .pipe-tag {
+            display: inline-flex; align-items: center; gap: 4px;
+            margin-top: 14px; padding: 4px 10px;
+            background: rgba(34, 197, 94, 0.08); color: var(--green);
+            border-radius: 6px; font-size: 12px; font-weight: 600;
+        }
+        .pipe-tag svg { width: 12px; height: 12px; }
+
+        /* ========== SHOWCASE ========== */
+        .showcase-section { background: var(--navy); }
+        .showcase-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+            align-items: center; margin-bottom: 64px;
+        }
+        .showcase-row:last-child { margin-bottom: 0; }
+        .showcase-row.reverse .showcase-prompt { order: 2; }
+        .showcase-row.reverse .showcase-images { order: 1; }
+        .showcase-prompt {
+            background: var(--midnight); border: 1px solid rgba(6, 182, 212, 0.08);
+            border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .prompt-header {
+            display: flex; align-items: center; gap: 10px;
+            padding: 14px 20px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);
+            background: rgba(15, 23, 42, 0.5);
+        }
+        .prompt-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+        }
+        .prompt-dot.green { background: var(--green); }
+        .prompt-dot.cyan { background: var(--cyan); }
+        .prompt-dot.amber { background: var(--amber); }
+        .prompt-label {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--slate-400);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .prompt-body {
+            padding: 20px; font-size: 14px; line-height: 1.9;
+            color: var(--slate-300);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .prompt-keyword {
+            color: var(--cyan); font-weight: 500;
+        }
+        .prompt-output {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 20px; font-size: 12px; font-weight: 600;
+            color: var(--green); background: rgba(34, 197, 94, 0.04);
+            border-top: 1px solid rgba(34, 197, 94, 0.08);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .prompt-output svg { stroke: var(--green); flex-shrink: 0; }
+        .showcase-images {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;
+            height: 100%;
+        }
+        .showcase-img-large {
+            border-radius: var(--radius); overflow: hidden;
+            background: var(--midnight);
+        }
+        .showcase-img-large img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: var(--radius);
+            transition: transform 0.4s ease;
+        }
+        .showcase-img-large:hover img { transform: scale(1.03); }
+        .showcase-img-stack {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .showcase-img-stack img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: var(--radius); background: var(--midnight);
+            transition: transform 0.4s ease;
+        }
+        .showcase-img-stack img:hover { transform: scale(1.03); }
+
+        @media (max-width: 900px) {
+            .showcase-row { grid-template-columns: 1fr; }
+            .showcase-row.reverse .showcase-prompt { order: 1; }
+            .showcase-row.reverse .showcase-images { order: 2; }
+            .showcase-images { grid-template-columns: 1fr 1fr; max-height: 400px; }
+        }
+        @media (max-width: 768px) {
+            .showcase-images { grid-template-columns: 1fr; max-height: none; }
+            .showcase-img-stack { flex-direction: row; }
+            .showcase-img-stack img { aspect-ratio: 1; }
+        }
+
+        /* ========== FEATURES ========== */
+        .features-section { background: var(--navy); }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .feat-card {
+            background: var(--midnight); border: 1px solid rgba(6, 182, 212, 0.05);
+            border-radius: var(--radius-lg); padding: 28px;
+            transition: border-color 0.25s; cursor: default;
+        }
+        .feat-card:hover { border-color: rgba(6, 182, 212, 0.15); }
+        .feat-icon {
+            width: 44px; height: 44px; border-radius: 11px;
+            background: rgba(6, 182, 212, 0.08); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+        }
+        .feat-icon svg { width: 22px; height: 22px; stroke: var(--cyan); }
+        .feat-card h3 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        .feat-card p { font-size: 14px; color: var(--slate-300); line-height: 1.65; }
+
+        /* ========== COMPARISON ========== */
+        .compare-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 880px; margin: 0 auto;
+        }
+        .compare-card { border-radius: var(--radius-lg); padding: 36px; }
+        .compare-card.before {
+            background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.12);
+        }
+        .compare-card.after {
+            background: rgba(34, 197, 94, 0.04); border: 1px solid rgba(34, 197, 94, 0.12);
+        }
+        .compare-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+        .compare-label svg { width: 14px; height: 14px; }
+        .before .compare-label { color: var(--red); }
+        .before .compare-label svg { stroke: var(--red); }
+        .after .compare-label { color: var(--green); }
+        .after .compare-label svg { stroke: var(--green); }
+        .compare-card h3 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 16px; }
+        .compare-list { list-style: none; }
+        .compare-list li {
+            padding: 7px 0; font-size: 14px; display: flex; align-items: flex-start; gap: 10px;
+            line-height: 1.5;
+        }
+        .compare-list li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; }
+        .before .compare-list li svg { stroke: var(--red); }
+        .after .compare-list li svg { stroke: var(--green); }
+
+        /* ========== WAITLIST ========== */
+        .waitlist-section { background: var(--navy); }
+        .waitlist-box { text-align: center; max-width: 540px; margin: 0 auto; }
+        .waitlist-form { display: flex; gap: 12px; margin-top: 32px; }
+        .waitlist-form input {
+            flex: 1; padding: 15px 20px; border-radius: var(--radius);
+            background: var(--midnight); border: 1px solid rgba(203, 213, 225, 0.12);
+            color: var(--white); font-size: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            outline: none; transition: border-color 0.2s;
+        }
+        .waitlist-form input::placeholder { color: rgba(203, 213, 225, 0.3); }
+        .waitlist-form input:focus { border-color: var(--cyan); }
+        .waitlist-form button {
+            background: var(--gradient-green); color: var(--midnight);
+            padding: 15px 28px; border-radius: var(--radius);
+            font-weight: 700; font-size: 16px; border: none; cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap; transition: transform 0.2s;
+        }
+        .waitlist-form button:hover { transform: translateY(-1px); }
+        .form-note { font-size: 13px; color: var(--slate-400); margin-top: 12px; }
+        .form-success {
+            display: none; padding: 16px; margin-top: 20px;
+            background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.15);
+            border-radius: var(--radius); color: var(--green); font-weight: 600;
+        }
+
+        /* ========== FOOTER ========== */
+        footer { border-top: 1px solid rgba(6, 182, 212, 0.06); padding: 48px 0; }
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-brand .logo-mark { width: 28px; height: 28px; border-radius: 8px; }
+        .footer-brand .logo-mark svg { width: 16px; height: 16px; }
+        .footer-brand .logo-text { font-size: 16px; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: var(--slate-400); font-size: 14px; cursor: pointer; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-copy { font-size: 13px; color: rgba(203, 213, 225, 0.3); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .pipeline-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            nav { top: 8px; left: 8px; right: 8px; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 64px; left: 0; right: 0;
+                background: rgba(15, 23, 42, 0.97); backdrop-filter: blur(16px);
+                border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+                padding: 16px 24px; gap: 16px;
+                border-top: 1px solid rgba(6, 182, 212, 0.08);
+            }
+            .mobile-toggle { display: block; }
+            .hero { padding: 140px 0 60px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .pipeline-grid, .features-grid { grid-template-columns: 1fr; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .waitlist-form { flex-direction: column; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+
+        /* ========== FOCUS STATES ========== */
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid var(--cyan); outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="/" class="logo" aria-label="ScalePod AI home">
+            <div class="logo-mark">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2L17 7v8l-7 5-7-5V7l7-5z" stroke="#fff" stroke-width="1.5" fill="none"/>
+                    <path d="M10 2v5m0 0l4 3m-4-3l-4 3" stroke="#fff" stroke-width="1.5" fill="none"/>
+                </svg>
+            </div>
+            <div class="logo-text">Scale<span>Pod</span></div>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#showcase">Results</a>
+            <a href="#features">Features</a>
+            <a href="#waitlist" class="btn-nav">
+                Join Waitlist
+                <svg viewBox="0 0 18 18" fill="none" width="14" height="14"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </a>
+        </div>
+        <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Early Access — Now Accepting Waitlist
+        </div>
+        <h1>Stop Designing.<br><span class="accent">Start Scaling.</span></h1>
+        <p class="hero-sub">AI agents that design, mockup, write copy, and publish your print-on-demand products to Etsy — while you sleep.</p>
+        <div class="hero-cta">
+            <a href="#waitlist">
+                <button class="btn-primary">
+                    Join the Waitlist
+                    <svg viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </a>
+            <a href="#how-it-works">
+                <button class="btn-secondary">
+                    <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 7l3 2-3 2V7z" fill="currentColor"/></svg>
+                    See How It Works
+                </button>
+            </a>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <div class="hero-image-placeholder" id="heroImage">
+                <img src="images/hero-mirror.jpg"
+                     onerror="this.src='images/showcase/fox-lifestyle.jpg'; this.alt='ScalePod AI generated product — Enchanted Fox AOP Hoodie';"
+                     alt="ScalePod AI transforming a text prompt into a fully designed all-over-print hoodie — from wireframe pattern pieces to finished product worn by a model"
+                     loading="eager" width="1344" height="750" style="border-radius: var(--radius-xl);">
+            </div>
+            <div class="hero-glow-bottom" aria-hidden="true"></div>
+        </div>
+
+        <div class="stats" role="list" aria-label="Key metrics">
+            <div class="stat" role="listitem">
+                <div class="stat-value">&lt;<span class="cyan">10</span>min</div>
+                <div class="stat-label">From idea to Etsy-ready listing</div>
+            </div>
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">7</span></div>
+                <div class="stat-label">Print zones designed per garment</div>
+            </div>
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">10</span></div>
+                <div class="stat-label">Pro listing images, auto-generated</div>
+            </div>
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">0</span></div>
+                <div class="stat-label">Design skills required</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+    <div class="container">
+        <div class="section-label">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            How It Works
+        </div>
+        <div class="section-title">One brief. Fully published listing.</div>
+        <div class="section-sub">Describe your product idea in plain English. Our AI agents handle every step — from design to Etsy shelf.</div>
+
+        <div class="pipeline-grid">
+            <div class="pipe-card">
+                <div class="pipe-num">01</div>
+                <h3>Design Director</h3>
+                <p>AI analyzes your niche, creates a design plan with color palettes, composition, and per-area prompts for every print zone.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    AI Agent
+                </span>
+            </div>
+            <div class="pipe-card">
+                <div class="pipe-num">02</div>
+                <h3>Artwork Generation</h3>
+                <p>High-resolution artwork for every print area — front, back, sleeves, hood panels, pocket — all cohesive and edge-to-edge.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    AI Agent
+                </span>
+            </div>
+            <div class="pipe-card">
+                <div class="pipe-num">03</div>
+                <h3>Mockup Production</h3>
+                <p>10 professional listing images: ghost mannequin, on-model lifestyle, fabric closeups, folded styling — all AI-generated.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    AI Agent
+                </span>
+            </div>
+            <div class="pipe-card">
+                <div class="pipe-num">04</div>
+                <h3>Copy & SEO</h3>
+                <p>Etsy-optimized titles, descriptions, and all 13 tags — calibrated for your niche's search volume and competition.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    AI Agent
+                </span>
+            </div>
+            <div class="pipe-card">
+                <div class="pipe-num">05</div>
+                <h3>Smart Pricing</h3>
+                <p>Niche-based pricing with competitor analysis and perpetual sale strategy that maximizes both conversion and margin.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2v8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    Automated
+                </span>
+            </div>
+            <div class="pipe-card">
+                <div class="pipe-num">06</div>
+                <h3>Publish to Etsy</h3>
+                <p>Artwork uploaded to Printify, product created with all variants, listing images attached, and published to your Etsy shop.</p>
+                <span class="pipe-tag">
+                    <svg viewBox="0 0 12 12" fill="none"><path d="M3 6l2.5 2.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    One-Click
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SHOWCASE: Prompt → Listing Images -->
+<section id="showcase" class="showcase-section">
+    <div class="container">
+        <div class="section-label" style="justify-content: center;">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4l6-2 6 2v8l-6 2-6-2V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 4l6 2 6-2M8 6v8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Real Results
+        </div>
+        <div class="section-title" style="text-align: center;">One prompt. Full product ready.</div>
+        <div class="section-sub" style="text-align: center; margin: 0 auto 56px;">These are real listing images generated entirely by ScalePod AI — from a single text prompt to published product.</div>
+
+        <!-- Product 1: Enchanted Fox Hoodie -->
+        <div class="showcase-row">
+            <div class="showcase-prompt">
+                <div class="prompt-header">
+                    <div class="prompt-dot green"></div>
+                    <span class="prompt-label">AOP Hoodie</span>
+                </div>
+                <div class="prompt-body">
+                    <span class="prompt-keyword">theme:</span> Celestial Spirit Fox<br>
+                    <span class="prompt-keyword">style:</span> Mystical boho botanical line art<br>
+                    <span class="prompt-keyword">palette:</span> Deep navy, metallic gold, luminous silver, warm amber<br>
+                    <span class="prompt-keyword">front:</span> Fox curled on crescent moon branch with botanical motifs<br>
+                    <span class="prompt-keyword">back:</span> Enchanted forest scene, starlight nebula canopy<br>
+                    <span class="prompt-keyword">sleeves:</span> Gold vines, moon phases, constellations
+                </div>
+                <div class="prompt-output">
+                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    7 artwork zones + 10 listing images + SEO copy + pricing
+                </div>
+            </div>
+            <div class="showcase-images">
+                <div class="showcase-img-large">
+                    <img src="images/showcase/fox-lifestyle.jpg" alt="Enchanted Fox hoodie on model, front view with mystical boho design" loading="lazy" width="800" height="800">
+                </div>
+                <div class="showcase-img-stack">
+                    <img src="images/showcase/fox-closeup.jpg" alt="Enchanted Fox hoodie fabric closeup showing print quality" loading="lazy" width="800" height="800">
+                    <img src="images/showcase/fox-detail.jpg" alt="Enchanted Fox hoodie model closeup showing chest print detail" loading="lazy" width="800" height="800">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2: Serpentine Lunar Tee -->
+        <div class="showcase-row reverse">
+            <div class="showcase-prompt">
+                <div class="prompt-header">
+                    <div class="prompt-dot cyan"></div>
+                    <span class="prompt-label">AOP T-Shirt</span>
+                </div>
+                <div class="prompt-body">
+                    <span class="prompt-keyword">theme:</span> Serpentine Lunar Feminine Power<br>
+                    <span class="prompt-keyword">style:</span> Whimsigoth art nouveau, dark romantic<br>
+                    <span class="prompt-keyword">palette:</span> Deep wine burgundy, antique gold, dark forest, dusty rose<br>
+                    <span class="prompt-keyword">front:</span> Serpent coiling around crescent moon, belladonna vines<br>
+                    <span class="prompt-keyword">back:</span> Starfield nebula with serpent tail intertwining nightshade<br>
+                    <span class="prompt-keyword">sleeves:</span> Cascading belladonna, serpentine scales, moon phases
+                </div>
+                <div class="prompt-output">
+                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    7 artwork zones + 10 listing images + SEO copy + pricing
+                </div>
+            </div>
+            <div class="showcase-images">
+                <div class="showcase-img-large">
+                    <img src="images/showcase/serpent-lifestyle.jpg" alt="Serpentine Lunar t-shirt on female model, dark romantic art nouveau design" loading="lazy" width="800" height="800">
+                </div>
+                <div class="showcase-img-stack">
+                    <img src="images/showcase/serpent-closeup.jpg" alt="Serpentine Lunar t-shirt fabric closeup showing poison garden print" loading="lazy" width="800" height="800">
+                    <img src="images/showcase/serpent-back.jpg" alt="Serpentine Lunar t-shirt back view showing starfield nebula and serpentine vine design" loading="lazy" width="800" height="800">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3: Celestial Nouveau Owl Sweatshirt -->
+        <div class="showcase-row">
+            <div class="showcase-prompt">
+                <div class="prompt-header">
+                    <div class="prompt-dot amber"></div>
+                    <span class="prompt-label">AOP Sweatshirt</span>
+                </div>
+                <div class="prompt-body">
+                    <span class="prompt-keyword">theme:</span> Celestial Nouveau Owl<br>
+                    <span class="prompt-keyword">style:</span> Art Nouveau with mystical boho, Mucha-inspired<br>
+                    <span class="prompt-keyword">palette:</span> Deep indigo, rich gold, antique cream, deep teal<br>
+                    <span class="prompt-keyword">front:</span> Great-horned owl perched on crescent moon with ivy<br>
+                    <span class="prompt-keyword">back:</span> Celestial nebula flowing into ornate sun with moon phases<br>
+                    <span class="prompt-keyword">sleeves:</span> Art Nouveau ivy vines with golden stars and moon symbols
+                </div>
+                <div class="prompt-output">
+                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    7 artwork zones + 10 listing images + SEO copy + pricing
+                </div>
+            </div>
+            <div class="showcase-images">
+                <div class="showcase-img-large">
+                    <img src="images/showcase/owl-lifestyle.jpg" alt="Celestial Owl sweatshirt on female model, art nouveau boho design" loading="lazy" width="800" height="800">
+                </div>
+                <div class="showcase-img-stack">
+                    <img src="images/showcase/owl-closeup.jpg" alt="Celestial Owl sweatshirt fabric closeup showing print quality" loading="lazy" width="800" height="800">
+                    <img src="images/showcase/owl-detail.jpg" alt="Celestial Owl sweatshirt model closeup showing chest detail" loading="lazy" width="800" height="800">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features-section">
+    <div class="container">
+        <div class="section-label">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+            Features
+        </div>
+        <div class="section-title">Built for POD sellers who want to scale.</div>
+        <div class="section-sub">Everything you need to go from 10 products to 1,000 — without hiring a team.</div>
+
+        <div class="features-grid">
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 15l3-4 2 2 3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>All-Over Print Mastery</h3>
+                <p>7 coordinated print zones per garment. Front, back, sleeves, hood, pocket — designed as a cohesive artwork system.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 16l5-4 3 2 4-3 8 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>10-Slot Listing Images</h3>
+                <p>Professional mockups matching top Etsy sellers. Ghost mannequin, lifestyle shots, fabric closeups, size charts — all AI-generated.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Etsy SEO Optimization</h3>
+                <p>Titles, descriptions, and all 13 tags written by AI trained on top-performing Etsy listings in your niche.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 12l3-9h12l3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12h18v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="16" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <h3>Branding Templates</h3>
+                <p>Niche-focused product templates with curated style guides — Japanese art, celestial boho, cottagecore, tarot, and more. Your brand, ready to go.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Multi-Tier Listings</h3>
+                <p>One design, three price points. AOP tee, sweatshirt, and hoodie from the same artwork. Maximize revenue per design.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Batch Processing</h3>
+                <p>Queue 50 product ideas and let the pipeline run. Review and approve from a visual dashboard. Publish when ready.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARISON -->
+<section>
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 48px;">
+            <div class="section-label" style="justify-content: center;">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                The Difference
+            </div>
+            <div class="section-title">Your time is worth more than mockups.</div>
+        </div>
+
+        <div class="compare-grid">
+            <div class="compare-card before">
+                <div class="compare-label">
+                    <svg viewBox="0 0 14 14" fill="none"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    The Old Way
+                </div>
+                <h3>Hours of busywork per product</h3>
+                <ul class="compare-list">
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Hire a designer or wrestle Photoshop yourself</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Pay $15-50 per mockup set or use free templates everyone has</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Guess at Etsy SEO — titles, descriptions, all 13 tags</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Manually upload to Printify, configure every variant</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Cap out at 2-3 new products per week</li>
+                </ul>
+            </div>
+            <div class="compare-card after">
+                <div class="compare-label">
+                    <svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    With ScalePod AI
+                </div>
+                <h3>Describe it. Review it. Publish it.</h3>
+                <ul class="compare-list">
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Type your idea in plain English — AI handles the rest</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>10 professional mockups generated per product, every time</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Etsy SEO copy trained on top-performing listings in your niche</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One-click publish — artwork, variants, pricing, done</li>
+                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Launch new products daily instead of weekly</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAITLIST -->
+<section id="waitlist" class="waitlist-section">
+    <div class="container">
+        <div class="waitlist-box">
+            <div class="section-label" style="justify-content: center;">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Get Early Access
+            </div>
+            <div class="section-title">Be first in line.</div>
+            <p style="color: var(--slate-300); font-size: 17px; line-height: 1.7;">Join the waitlist and lock in founder pricing when we launch. No spam — just launch updates.</p>
+
+            <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlist(event)">
+                <label for="waitlistEmail" class="sr-only">Email address</label>
+                <input type="email" id="waitlistEmail" placeholder="you@example.com" required aria-label="Email address">
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <div class="form-note">We respect your privacy. Unsubscribe anytime.</div>
+            <div class="form-success" id="formSuccess" role="alert">
+                You're on the list! We'll be in touch with early access details.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L17 7v8l-7 5-7-5V7l7-5z" stroke="#fff" stroke-width="1.5" fill="none"/><path d="M10 2v5m0 0l4 3m-4-3l-4 3" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
+                </div>
+                <div class="logo-text">Scale<span>Pod</span></div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:wellnesspresso@gmail.com">Contact</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 ScalePod AI. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<!-- SR-ONLY utility -->
+<style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }</style>
+
+<script>
+function handleWaitlist(e) {
+    e.preventDefault();
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    document.querySelector('.form-note').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
