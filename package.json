@@ -1,0 +1,23 @@
+{
+  "name": "scalepodai-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zahor99/scalepodAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zahor99/scalepodAI/issues"
+  },
+  "homepage": "https://github.com/zahor99/scalepodAI#readme",
+  "dependencies": {
+    "thepopebot": "^1.2.73"
+  }
+}
