@@ -1,0 +1,4 @@
+{
+  "title": "Analyze Marketing Cluster Deployment Documentation",
+  "job": "Read and analyze the marketing cluster deployment plan at `docs/MARKETING_CLUSTER_DEPLOYMENT.md`.\n\nExamine the contents of this file to understand:\n1. What marketing infrastructure is being planned or deployed\n2. Any components, services, or integrations mentioned  \n3. Deployment steps or requirements\n4. How this relates to the overall system architecture\n5. Any specific tools, APIs, or platforms referenced (especially social media/marketing tools)\n6. Any connections to Postiz, social media automation, or related services\n\nAfter reading and analyzing the document, provide a comprehensive summary of:\n- Key components and architecture\n- Deployment requirements\n- Integration points\n- How this context relates to our discussion about Postiz MCP integration\n- Any implications for the thepopebot system capabilities"
+}
