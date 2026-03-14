@@ -1,0 +1,4 @@
+{
+  "title": "Check repository context and file structure for file placement guidance",
+  "job": "Check the current repository context and file structure to help the user understand where to put files.\n\n1. Run `git remote -v` to show the GitHub repository URL\n2. Run `pwd` to show the current working directory\n3. Run `ls -la` to show the root directory structure\n4. Check environment variables: `echo \"Owner: $GH_OWNER, Repo: $GH_REPO\"` (if available)\n5. Look for any existing docs or data directories where marketing files could go\n6. Provide a clear summary of:\n   - What GitHub repository this is\n   - Where the user should put their MARKETING_CLUSTER_DEPLOYMENT.md file\n   - What the repository structure looks like"
+}
