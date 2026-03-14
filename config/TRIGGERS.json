@@ -54,5 +54,16 @@
       { "type": "agent", "job": "Review the GitHub event and summarize what happened:\n{{body}}", "llm_provider": "openai", "llm_model": "gpt-4o" }
     ],
     "enabled": false
+  },
+  {
+    "name": "Marketing Content Creator",
+    "watch_path": "/webhook/marketing-content-create",
+    "enabled": true,
+    "actions": [
+      {
+        "type": "agent",
+        "job": "You are the Content Creator role in the Marketing & Content cluster. Read the latest directive from clusters/marketing-content/shared/directives/ and create social media content (tweets, pins, posts) per the instructions. Target audience: Women 22-34 interested in whimsigoth/dark cottagecore/boho goth aesthetic. Publish via Postiz API (https://tools.scalepod.ai/api/public/v1, auth header: 'Authorization: POSTIZ_API_KEY'). Update the Content Calendar in Airtable (base: appGRWviWaXJpcpCC, table: tbloKzWEyUxDxExNV). Reference the content strategy in data/docs/Social_Media_Content_Strategy_MaidenBloom_2026.html. Webhook payload: {{body}}"
+      }
+    ]
   }
 ]

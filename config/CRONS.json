@@ -52,5 +52,32 @@
     "llm_provider": "openai",
     "llm_model": "gpt-4o",
     "enabled": false
+  },
+  {
+    "name": "Marketing Content Scheduler",
+    "schedule": "0 1 * * 0",
+    "type": "agent",
+    "job": "You are the Scheduler role in the Marketing & Content cluster. Create a 7-day content calendar for next week following these content mix ratios: 25% Aesthetic, 20% Product, 20% Behind Design, 20% Education, 15% Community. Write all entries to the Airtable Content Calendar table (base: appGRWviWaXJpcpCC, table: tbloKzWEyUxDxExNV). Write a summary report to clusters/marketing-content/shared/reports/. Reference the full content strategy in data/docs/Social_Media_Content_Strategy_MaidenBloom_2026.html and read any directives from clusters/marketing-content/shared/directives/.",
+    "enabled": true,
+    "llm_provider": "anthropic",
+    "llm_model": "claude-3-5-sonnet-20241022"
+  },
+  {
+    "name": "Marketing Engagement Tracker",
+    "schedule": "0 2 * * *",
+    "type": "agent",
+    "job": "You are the Engagement Tracker role in the Marketing & Content cluster. Pull engagement metrics from recently published content across all platforms. Update the Airtable Content Calendar table (base: appGRWviWaXJpcpCC, table: tbloKzWEyUxDxExNV) with latest engagement numbers. Write a performance report to clusters/marketing-content/shared/reports/. Focus on our ICP: Women 22-34, whimsigoth/dark cottagecore/boho goth aesthetic.",
+    "enabled": true,
+    "llm_provider": "anthropic",
+    "llm_model": "claude-3-5-sonnet-20241022"
+  },
+  {
+    "name": "Marketing SEO Auditor",
+    "schedule": "0 13 * * 3",
+    "type": "agent",
+    "job": "You are the SEO Auditor & Blog Writer role in the Marketing & Content cluster. Research trending keywords for our niches (dark floral, whimsigoth, cottagecore) targeting women 22-34. Update the Keyword Tracker (tblushsnd2AsXhDlK) and SEO Strategy (tbl9Gq9ztstxrOKm0) tables in Airtable base appGRWviWaXJpcpCC. Draft a blog post if scheduled in the content calendar. Write a report to clusters/marketing-content/shared/reports/. Use data/docs/ and data/knowledge-base/ for reference materials.",
+    "enabled": true,
+    "llm_provider": "anthropic",
+    "llm_model": "claude-3-5-sonnet-20241022"
   }
 ]
