@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maiden Bloom — Social Media Content Strategy 2026</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --card: #1a1a2e;
+    --accent: #c9a0dc;
+    --accent2: #e8b4b8;
+    --text: #e0e0e0;
+    --muted: #999;
+    --border: #2a2a3e;
+    --green: #7ecf9a;
+    --blue: #7eb5cf;
+    --orange: #cfaa7e;
+    --pink: #cf7ea0;
+    --red: #cf7e7e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 60px 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+  }
+  .hero h1 {
+    font-size: 2.4em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .hero .subtitle {
+    color: var(--accent2);
+    font-size: 1.15em;
+    margin-bottom: 8px;
+  }
+  .hero .date {
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px;
+  }
+  h2 {
+    font-size: 1.6em;
+    color: var(--accent);
+    margin: 40px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-size: 1.2em;
+    color: var(--accent2);
+    margin: 24px 0 12px;
+  }
+  h4 {
+    font-size: 1.05em;
+    color: var(--blue);
+    margin: 16px 0 8px;
+  }
+  p { margin-bottom: 14px; }
+  .exec-summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+  }
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .platform-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s;
+  }
+  .platform-card:hover { transform: translateY(-2px); }
+  .platform-card .icon { font-size: 2em; margin-bottom: 8px; }
+  .platform-card h3 { margin-top: 0; color: var(--accent); }
+  .platform-card .priority {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .priority-high { background: rgba(126,207,154,0.2); color: var(--green); }
+  .priority-medium { background: rgba(207,170,126,0.2); color: var(--orange); }
+  .priority-low { background: rgba(207,126,126,0.2); color: var(--red); }
+
+  .strategy-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+  .content-type {
+    background: rgba(201,160,220,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .content-type strong { color: var(--accent2); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.95em;
+  }
+  th {
+    background: rgba(201,160,220,0.15);
+    color: var(--accent);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: rgba(255,255,255,0.03); }
+  .tag {
+    display: inline-block;
+    background: rgba(201,160,220,0.15);
+    color: var(--accent);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.82em;
+    margin: 2px 3px;
+  }
+  .tip-box {
+    background: rgba(126,181,207,0.1);
+    border: 1px solid rgba(126,181,207,0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .tip-box::before {
+    content: "💡 ";
+  }
+  .calendar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .calendar-row .day { color: var(--accent); font-weight: 600; }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .kpi-card {
+    background: rgba(201,160,220,0.08);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .kpi-card .value { font-size: 1.8em; color: var(--accent); font-weight: 700; }
+  .kpi-card .label { color: var(--muted); font-size: 0.85em; }
+  ul { margin: 8px 0 14px 24px; }
+  li { margin-bottom: 6px; }
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Maiden Bloom — Social Media Content Strategy</h1>
+  <div class="subtitle">AOP Fashion Brand | Whimsigoth · Dark Cottagecore · Boho Goth</div>
+  <div class="date">Research compiled March 14, 2026 | Target: Women 22–34</div>
+</div>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="exec-summary">
+  <h2 style="margin-top:0; border:none;">Executive Summary</h2>
+  <p>This report synthesizes research across <strong>Instagram, TikTok, YouTube, X/Twitter, and Pinterest</strong> to identify the highest-ROI content strategies for Maiden Bloom — a print-on-demand AOP fashion brand targeting women 22–34 in the whimsigoth/dark cottagecore/boho goth aesthetic.</p>
+  <p>The key finding across all platforms: <strong>consistency and community beat virality</strong>. Brands that build episodic, series-based content and nurture a loyal following outperform those chasing one-off viral hits. For a POD brand with no physical inventory, content that showcases the design process, styling ideas, and aesthetic lifestyle performs dramatically better than product-only posts.</p>
+  <p><strong>Top 3 priorities:</strong> (1) Pinterest — highest purchase intent, best fit for fashion discovery, 553M MAU; (2) Instagram — episodic Reels + broadcast channels for community; (3) TikTok — GRWM/OOTD content for viral discovery and potential TikTok Shop integration.</p>
+</div>
+
+<!-- PLATFORM PRIORITY OVERVIEW -->
+<h2>Platform Priority Overview</h2>
+<div class="platform-grid">
+  <div class="platform-card">
+    <div class="icon">📌</div>
+    <h3>Pinterest</h3>
+    <p>553M MAU, 70% female, highest purchase intent of any social platform. Shopping ads deliver 3x higher conversion. 80% of trend predictions come true.</p>
+    <span class="priority priority-high">HIGH PRIORITY</span>
+  </div>
+  <div class="platform-card">
+    <div class="icon">📸</div>
+    <h3>Instagram</h3>
+    <p>Best for community building, episodic content series, and DM automation funnels. Broadcast channels get 90%+ open rates — better than email.</p>
+    <span class="priority priority-high">HIGH PRIORITY</span>
+  </div>
+  <div class="platform-card">
+    <div class="icon">🎵</div>
+    <h3>TikTok</h3>
+    <p>Fastest organic reach for new brands. GRWM and OOTD content dominates fashion. TikTok Shop integration = direct sales. Gen Z discovery engine.</p>
+    <span class="priority priority-high">HIGH PRIORITY</span>
+  </div>
+  <div class="platform-card">
+    <div class="icon">🎬</div>
+    <h3>YouTube</h3>
+    <p>Long-form authority content. Design process, lookbooks, haul videos. YouTube Shorts for cross-posting. Evergreen SEO value drives traffic for months.</p>
+    <span class="priority priority-medium">MEDIUM PRIORITY</span>
+  </div>
+  <div class="platform-card">
+    <div class="icon">𝕏</div>
+    <h3>X / Twitter</h3>
+    <p>Best for brand personality, real-time culture commentary, and building founder voice. Thread-based storytelling. Lower direct conversion but high brand awareness.</p>
+    <span class="priority priority-low">LOWER PRIORITY</span>
+  </div>
+</div>
+
+<!-- PINTEREST STRATEGY -->
+<h2>1. Pinterest — Your #1 Sales Channel</h2>
+<div class="strategy-section">
+  <h3>Why Pinterest First</h3>
+  <p>Pinterest is uniquely suited for Maiden Bloom. Unlike other platforms where users scroll passively, <strong>Pinterest users actively plan purchases</strong>. They save 1.5 billion pins per week, and 1 in 3 shoppers earns over $100K/year. The platform is 70% female, Gen Z is the fastest-growing segment (42% of users), and fashion/home decor are core categories.</p>
+  <p>Shopping ads on Pinterest deliver <strong>3x higher conversion</strong> and 2x ROAS vs. other platforms. Users exposed to brand ads are 10x more likely to search for that brand later. For a visual, aesthetic-driven brand like Maiden Bloom, this is the highest-ROI channel.</p>
+
+  <h3>Content Strategy</h3>
+  <div class="content-type">
+    <strong>Product Pins (40% of content)</strong> — High-quality mockups on white/lifestyle backgrounds. Use your listing images (on-model shots, ghost mannequin, flat lays). Each product = 5-7 unique pins with different images/descriptions targeting different keywords.
+  </div>
+  <div class="content-type">
+    <strong>Lifestyle/Inspiration Pins (30%)</strong> — Mood boards, aesthetic collages, "outfit of the day" styled pins. Dark floral arrangements, moonlit scenes, mushroom forests, crystal collections — content that embodies the whimsigoth lifestyle without being a direct product ad.
+  </div>
+  <div class="content-type">
+    <strong>Video Pins (20%)</strong> — 20% higher conversion than static. Show fabric texture close-ups, design process timelapses, styling videos. 15-60 seconds optimal.
+  </div>
+  <div class="content-type">
+    <strong>Idea Pins / Trend-Aligned (10%)</strong> — Follow Pinterest Predicts. Create boards around trending aesthetics. "Cherry red" searches are up 325%. Align with seasonal planning — users plan 2-3 months ahead.
+  </div>
+
+  <div class="tip-box">
+    <strong>Start campaigns 2-3 months before peak season.</strong> Pinterest is a planning platform — summer dress pins should go up in March/April. Fall/Halloween aesthetic content should start in July/August. Holiday gift guides by September.
+  </div>
+
+  <h3>Board Structure for Maiden Bloom</h3>
+  <table>
+    <tr><th>Board Name</th><th>Content Type</th><th>Target Keywords</th></tr>
+    <tr><td>Dark Floral Dresses</td><td>Product pins + styling</td><td>dark floral dress, moody floral, gothic dress</td></tr>
+    <tr><td>Whimsigoth Aesthetic</td><td>Lifestyle mood boards</td><td>whimsigoth outfit, dark academia, witchy fashion</td></tr>
+    <tr><td>Cottagecore Style</td><td>Product + lifestyle mix</td><td>cottagecore dress, cottage aesthetic, floral midi</td></tr>
+    <tr><td>Celestial Fashion</td><td>Product pins</td><td>celestial dress, moon print, star dress</td></tr>
+    <tr><td>Boho Maxi Dresses</td><td>Product + outfit ideas</td><td>boho floral maxi, bohemian dress, boho outfit</td></tr>
+    <tr><td>AOP Hoodies & Sweatshirts</td><td>Product pins</td><td>all over print hoodie, graphic hoodie, art hoodie</td></tr>
+    <tr><td>Gift Ideas for Her</td><td>Curated collections</td><td>gifts for her, unique gifts, fashion gifts</td></tr>
+    <tr><td>Design Process & Behind the Scenes</td><td>Video pins, timelapses</td><td>fashion design, print on demand, art process</td></tr>
+  </table>
+
+  <h3>Key Stats to Remember</h3>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="value">553M</div><div class="label">Monthly Active Users</div></div>
+    <div class="kpi-card"><div class="value">70%</div><div class="label">Female Users</div></div>
+    <div class="kpi-card"><div class="value">3x</div><div class="label">Higher Conversion (Shopping Ads)</div></div>
+    <div class="kpi-card"><div class="value">82%</div><div class="label">Browse on Mobile</div></div>
+  </div>
+</div>
+
+<!-- INSTAGRAM STRATEGY -->
+<h2>2. Instagram — Community & Conversion Engine</h2>
+<div class="strategy-section">
+  <h3>The 2026 Instagram Playbook</h3>
+  <p>Instagram in 2026 is a <strong>distribution and relationship platform</strong>, not just a posting platform. The brands winning aren't chasing virality — they're building systems that generate repeat attention, trust, and conversions. The key framework:</p>
+  <p style="text-align:center; font-size:1.05em; color:var(--accent); padding:12px 0;"><strong>Episodic Content → Trial Reels → DM Funnels → Broadcast Community → Email/SMS Lists → Drops & Sales</strong></p>
+
+  <h3>Top Content Formats</h3>
+  <div class="content-type">
+    <strong>1. Episodic Reels Series (Core — 3-4x/week)</strong><br>
+    Series-based content that brings viewers back. Ideas for Maiden Bloom:<br>
+    • "Styling Dark Florals: Day [X]" — daily outfit combinations with your AOP dresses<br>
+    • "Design Diary" — weekly behind-the-scenes of creating new prints<br>
+    • "Whimsigoth Wardrobe Build" — building a capsule wardrobe piece by piece<br>
+    • "30 Days of Boho" — month-long styling challenge<br>
+    This builds <em>parasocial relationships</em> — viewers feel like they know you and return for each episode.
+  </div>
+  <div class="content-type">
+    <strong>2. Broadcast Channel (Daily/Every Other Day)</strong><br>
+    Free VIP community funnel with 90%+ open rate. Use for:<br>
+    • New drop teasers & early access<br>
+    • Voice memos from founder (design inspiration, brand story)<br>
+    • Polls: "Which colorway should we release next?"<br>
+    • Styling tips & fabric care guides<br>
+    • Exclusive discount codes
+  </div>
+  <div class="content-type">
+    <strong>3. Trial Reels (2-3x/week for testing)</strong><br>
+    Show to non-followers first, keep off main profile initially. Test different hooks:<br>
+    • Outfit transitions (before/after with your AOP pieces)<br>
+    • "POV: You just got the most beautiful dress in the mail"<br>
+    • Fabric texture ASMR close-ups<br>
+    Double down on winners.
+  </div>
+  <div class="content-type">
+    <strong>4. DM Automation Funnels (Always On)</strong><br>
+    Use ManyChat or similar. Example flow:<br>
+    1. User comments "STYLE" on a Reel → 2. Auto-DM with styling guide → 3. Ask for email → 4. Offer 10% welcome code → 5. Add to email/SMS list<br>
+    <strong>This converts Instagram attention into an owned asset (email list).</strong>
+  </div>
+
+  <h3>Profile Optimization Checklist</h3>
+  <ul>
+    <li><strong>Bio:</strong> Who it's for + what you sell + why it matters. E.g., "Wearable dark art for the modern mystic 🌙 AOP dresses, hoodies & more ✨ Free shipping on $75+"</li>
+    <li><strong>Highlights:</strong> Bestsellers | Reviews | Styling Tips | New Drops | Size Guide</li>
+    <li><strong>Link in bio:</strong> Linktree or Shopify landing page with top products</li>
+    <li><strong>Profile health target:</strong> 10-20% profile views → follower conversion</li>
+  </ul>
+</div>
+
+<!-- TIKTOK STRATEGY -->
+<h2>3. TikTok — Viral Discovery & Direct Sales</h2>
+<div class="strategy-section">
+  <h3>Why TikTok Matters for POD Fashion</h3>
+  <p>TikTok is the fastest organic discovery engine for new fashion brands. The algorithm rewards compelling content regardless of follower count, making it ideal for a brand just starting its social presence. Fashion is one of TikTok's strongest verticals — <strong>GRWM (Get Ready With Me)</strong> and <strong>OOTD (Outfit of the Day)</strong> are among the highest-engagement content types on the platform.</p>
+
+  <h3>Top Content Formats</h3>
+  <div class="content-type">
+    <strong>GRWM / Get Ready With Me (Highest Engagement)</strong><br>
+    Show the full process: picking an outfit from your collection, getting dressed, final look reveal. Works especially well with the whimsigoth aesthetic — incorporate moody lighting, candles, crystals. Music: indie/dark folk trending sounds.
+  </div>
+  <div class="content-type">
+    <strong>OOTD / Outfit of the Day</strong><br>
+    Quick outfit showcases (15-30 sec). Multiple angles, transition effects. Show how AOP dresses/hoodies look in real life. Include text overlay with product name and price.
+  </div>
+  <div class="content-type">
+    <strong>Haul / Unboxing Videos</strong><br>
+    "New collection just dropped" — unbox and try on each piece. This works beautifully for POD because you can create anticipation around new designs. Package reveals, fabric feel, first impressions.
+  </div>
+  <div class="content-type">
+    <strong>Design Process / Behind the Scenes</strong><br>
+    Show AI-generated artwork being created, print placement on products, mockup reveals. The "how it's made" angle is extremely popular. People love seeing the creative process.
+  </div>
+  <div class="content-type">
+    <strong>UGC (User-Generated Content)</strong><br>
+    Once you have customers, repost their styling videos. Micro-influencer strategy: send free products to creators with 1K-10K followers in the whimsigoth/cottagecore niche. Cost-effective, authentic, high trust.
+  </div>
+
+  <h3>TikTok Shop Integration</h3>
+  <p>Once your account meets requirements, TikTok Shop enables in-app purchases directly from videos. This collapses the funnel from discovery to sale. Priority once your account is warmed up and region-eligible.</p>
+
+  <div class="tip-box">
+    <strong>Posting cadence:</strong> 1-2 videos per day during growth phase. Batch-create content: film 5-7 clips in one session, edit and schedule throughout the week. Use trending sounds but stay on-brand.
+  </div>
+
+  <h3>Hashtag Strategy</h3>
+  <p>
+    <span class="tag">#whimsigoth</span>
+    <span class="tag">#darkcottagecore</span>
+    <span class="tag">#gothicfashion</span>
+    <span class="tag">#bohogoth</span>
+    <span class="tag">#darkfloral</span>
+    <span class="tag">#GRWM</span>
+    <span class="tag">#OOTD</span>
+    <span class="tag">#witchyoutfit</span>
+    <span class="tag">#celestialfashion</span>
+    <span class="tag">#alloverprint</span>
+    <span class="tag">#darkacademia</span>
+    <span class="tag">#fashiontok</span>
+    <span class="tag">#cottagecoredress</span>
+    <span class="tag">#printondemand</span>
+    <span class="tag">#smallbusinesscheck</span>
+  </p>
+</div>
+
+<!-- YOUTUBE STRATEGY -->
+<h2>4. YouTube — Evergreen Authority Content</h2>
+<div class="strategy-section">
+  <h3>Strategy Overview</h3>
+  <p>YouTube is the long-game play. Unlike TikTok and Instagram where content has a 24-72 hour lifespan, YouTube videos rank in search for months or years. For Maiden Bloom, YouTube serves two purposes: (1) building authority/trust through longer content and (2) YouTube Shorts for cross-platform reach.</p>
+
+  <h3>Content Pillars</h3>
+  <div class="content-type">
+    <strong>Design Dissection Series (Monthly, 5-10 min)</strong><br>
+    Deep dive into how a specific design was created. Show the inspiration, AI generation process, print placement decisions, mockup creation. "How I Designed This Celestial AOP Dress" — great for attracting other creators and fashion enthusiasts.
+  </div>
+  <div class="content-type">
+    <strong>Lookbook Videos (Monthly, 3-5 min)</strong><br>
+    Styled collection showcases. "Whimsigoth Fall Collection 2026" — model shots, lifestyle settings, music. These double as ad creative for paid campaigns.
+  </div>
+  <div class="content-type">
+    <strong>YouTube Shorts (3-5x/week, 15-60 sec)</strong><br>
+    Cross-post TikTok/Reels content. Outfit reveals, design timelapses, fabric close-ups. Low effort, high distribution. YouTube Shorts are heavily promoted by the algorithm right now.
+  </div>
+  <div class="content-type">
+    <strong>UGC Remix / Customer Features (As available)</strong><br>
+    Compile customer photos/videos into "how our community styles Maiden Bloom" compilations. Builds social proof and community.
+  </div>
+
+  <div class="tip-box">
+    <strong>SEO tip:</strong> Title videos with search-friendly keywords like "Dark Floral Dress Lookbook 2026" or "Whimsigoth Outfit Ideas." YouTube is the second-largest search engine — optimize titles, descriptions, and tags.
+  </div>
+</div>
+
+<!-- X/TWITTER STRATEGY -->
+<h2>5. X / Twitter — Brand Voice & Culture</h2>
+<div class="strategy-section">
+  <h3>Strategy Overview</h3>
+  <p>X is lowest priority for direct sales but valuable for building brand personality and connecting with the fashion/aesthetic community. The algorithm in 2026 heavily rewards engagement signals (replies, retweets, bookmarks) and rich media (images get 150%+ more engagement than text-only).</p>
+
+  <h3>Content Approaches</h3>
+  <div class="content-type">
+    <strong>Aesthetic Threads (1-2x/week)</strong><br>
+    "The history of dark floral patterns in fashion" — educational, shareable threads that position Maiden Bloom as a taste-maker. Include your product images as visual examples.
+  </div>
+  <div class="content-type">
+    <strong>Design Reveals (With each new product)</strong><br>
+    "Just finished this celestial moth dress and I'm obsessed 🌙" — casual, authentic product reveals. Show before/after, design process snippets.
+  </div>
+  <div class="content-type">
+    <strong>Community Engagement</strong><br>
+    Polls: "Which vibe for the next collection: Dark Botanical vs. Lunar Eclipse?" Reply to and engage with whimsigoth/cottagecore community posts. Real-time reactions to fashion events, seasonal aesthetics.
+  </div>
+  <div class="content-type">
+    <strong>Best posting times:</strong> 8-10 AM and 6-9 PM EST (when your target demo is browsing). 3-5 posts per week. Always include images or video.
+  </div>
+</div>
+
+<!-- WEEKLY CONTENT CALENDAR -->
+<h2>6. Weekly Content Calendar Template</h2>
+<div class="strategy-section">
+  <p>Suggested weekly cadence across all platforms. Batch-create on one day per week to save time.</p>
+
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>Instagram</th>
+      <th>TikTok</th>
+      <th>Pinterest</th>
+      <th>YouTube</th>
+      <th>X/Twitter</th>
+    </tr>
+    <tr>
+      <td><strong>Mon</strong></td>
+      <td>Episodic Reel + Story</td>
+      <td>GRWM video</td>
+      <td>5 product pins</td>
+      <td>—</td>
+      <td>Design reveal</td>
+    </tr>
+    <tr>
+      <td><strong>Tue</strong></td>
+      <td>Broadcast msg + Trial Reel</td>
+      <td>OOTD</td>
+      <td>3 lifestyle pins</td>
+      <td>Short</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>Wed</strong></td>
+      <td>Episodic Reel</td>
+      <td>Design process BTS</td>
+      <td>5 product pins</td>
+      <td>Short</td>
+      <td>Aesthetic thread</td>
+    </tr>
+    <tr>
+      <td><strong>Thu</strong></td>
+      <td>Carousel + DM CTA</td>
+      <td>GRWM/OOTD</td>
+      <td>3 video pins</td>
+      <td>Short</td>
+      <td>Poll / engagement</td>
+    </tr>
+    <tr>
+      <td><strong>Fri</strong></td>
+      <td>Episodic Reel + Broadcast</td>
+      <td>Haul / try-on</td>
+      <td>5 product pins</td>
+      <td>—</td>
+      <td>Community reply day</td>
+    </tr>
+    <tr>
+      <td><strong>Sat</strong></td>
+      <td>Story (casual/personal)</td>
+      <td>Trending sound + outfit</td>
+      <td>—</td>
+      <td>Short</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>Sun</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>Schedule week's pins</td>
+      <td>Long-form upload</td>
+      <td>—</td>
+    </tr>
+  </table>
+
+  <div class="tip-box">
+    <strong>Batch content creation day:</strong> Dedicate one day (e.g., Sunday) to film all video content for the week. Shoot 5-7 TikTok/Reels clips, take product photos for Pinterest, write all captions. Use scheduling tools (Later, Tailwind for Pinterest, Buffer for X).
+  </div>
+</div>
+
+<!-- CONTENT THEMES BY NICHE -->
+<h2>7. Content Themes by Niche Keyword</h2>
+<div class="strategy-section">
+  <p>Aligned with your top 6 dress keywords from the Yoycol expansion research:</p>
+
+  <table>
+    <tr>
+      <th>Keyword / Niche</th>
+      <th>Vol/mo</th>
+      <th>Content Themes</th>
+      <th>Visual Style</th>
+    </tr>
+    <tr>
+      <td><strong>Dark floral dress</strong></td>
+      <td>22,200</td>
+      <td>Moody romantic styling, date night outfits, fall/winter layering, dark wedding guest</td>
+      <td>Black bg, crimson/blush florals, candlelit scenes</td>
+    </tr>
+    <tr>
+      <td><strong>Cottagecore dress</strong></td>
+      <td>18,100</td>
+      <td>Countryside picnic shoots, garden tea party, vintage market days, flower picking</td>
+      <td>White/cream/lavender bg, daisies, strawberries, pastoral</td>
+    </tr>
+    <tr>
+      <td><strong>Celestial dress</strong></td>
+      <td>5,400</td>
+      <td>Stargazing outfits, full moon styling, cosmic accessories, witchy layering</td>
+      <td>Midnight blue/black bg, gold moons, silver stars</td>
+    </tr>
+    <tr>
+      <td><strong>Vintage floral dress</strong></td>
+      <td>4,400</td>
+      <td>Retro styling, thrift flip inspo, grandmother's closet vibes, tea party</td>
+      <td>Ivory/powder blue bg, cabbage roses, chintz</td>
+    </tr>
+    <tr>
+      <td><strong>Whimsigoth dress</strong></td>
+      <td>1,900</td>
+      <td>Full aesthetic lifestyle, tarot/crystal unboxing, dark academia combo, bookish witchy</td>
+      <td>Dark purple/black bg, moths, mushrooms, moons</td>
+    </tr>
+    <tr>
+      <td><strong>Boho floral maxi</strong></td>
+      <td>880</td>
+      <td>Festival outfits, beach/travel content, sunset golden hour shoots, free-spirit lifestyle</td>
+      <td>Earth tones, wildflowers, sunset palette</td>
+    </tr>
+  </table>
+</div>
+
+<!-- COMPETITOR INSIGHTS -->
+<h2>8. Competitor & Industry Insights</h2>
+<div class="strategy-section">
+  <h3>What Top AOP Sellers Do Well</h3>
+  <p>Based on analysis of QMLDesignLab, ForestFablesShop, CulturalThemesStudio, and broader fashion retail social accounts:</p>
+  <ul>
+    <li><strong>Hero image quality matters most</strong> — Etsy's top AOP sellers invest heavily in on-model photography and lifestyle shots. This same content fuels their social media.</li>
+    <li><strong>Perpetual sale framing</strong> — "50% OFF" in social posts creates urgency. Works across all platforms.</li>
+    <li><strong>Niche consistency</strong> — Successful sellers stick to 2-3 aesthetics max. Maiden Bloom should own: dark floral, celestial, and cottagecore.</li>
+    <li><strong>Cross-posting with platform adaptation</strong> — Same content, different format. A 60-sec TikTok becomes a Reel, a YouTube Short, and 3-4 screenshot pins.</li>
+  </ul>
+
+  <h3>2026 Fashion Trends (Printful Report)</h3>
+  <p>Trends confirmed by search data, creator platforms, and purchasing signals:</p>
+  <ul>
+    <li><strong>All-over print and modern maximalism</strong> — "Oversized silhouettes, dense graphics, and statement hues dominate visual platforms." This is exactly what Maiden Bloom sells.</li>
+    <li><strong>Comfort + authenticity</strong> — Consumers prefer fewer, stronger aesthetics over trend-chasing. Build a cohesive collection, not scattered designs.</li>
+    <li><strong>Discovery happens visually and instantly</strong> — Short-form video and curated imagery drive what people buy. The path from inspiration to checkout is compressed.</li>
+    <li><strong>Embroidery and quiet luxury</strong> — Rising counter-trend. Consider a "minimal" sub-line if branching out.</li>
+  </ul>
+</div>
+
+<!-- MICRO-INFLUENCER STRATEGY -->
+<h2>9. Micro-Influencer Strategy</h2>
+<div class="strategy-section">
+  <h3>Influencer Tiers for POD Brands</h3>
+  <table>
+    <tr><th>Tier</th><th>Followers</th><th>Cost</th><th>Best For</th></tr>
+    <tr><td>Nano</td><td>1K–5K</td><td>Free product</td><td>Authentic UGC, high engagement rate (5-10%)</td></tr>
+    <tr><td>Micro</td><td>5K–25K</td><td>Product + $50-150</td><td>Niche reach, trusted recommendations</td></tr>
+    <tr><td>Mid-tier</td><td>25K–100K</td><td>$200-500</td><td>Broader awareness, styled content</td></tr>
+  </table>
+
+  <h3>How to Find the Right Creators</h3>
+  <ul>
+    <li>Search hashtags: #whimsigoth, #darkcottagecore, #bohogoth, #witchyoutfit on TikTok and Instagram</li>
+    <li>Look for creators who already wear AOP/printed fashion</li>
+    <li>Check engagement rate (comments/likes ÷ followers) — aim for 3%+ </li>
+    <li>Send 5-10 free products per month to nano-influencers in exchange for content rights</li>
+    <li>Repurpose their content as UGC ads on all your channels</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>ROI tip:</strong> One UGC video from a nano-influencer that you repurpose as a paid ad can outperform professional content by 2-3x in click-through rate. The "authentic, not polished" look converts better for fashion brands.
+  </div>
+</div>
+
+<!-- KPI TARGETS -->
+<h2>10. KPI Targets (First 90 Days)</h2>
+<div class="strategy-section">
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="value">500</div><div class="label">Pinterest Followers</div></div>
+    <div class="kpi-card"><div class="value">1K</div><div class="label">Instagram Followers</div></div>
+    <div class="kpi-card"><div class="value">2K</div><div class="label">TikTok Followers</div></div>
+    <div class="kpi-card"><div class="value">200</div><div class="label">Email List Subscribers</div></div>
+  </div>
+
+  <h3>Metrics to Track Weekly</h3>
+  <table>
+    <tr><th>Platform</th><th>Primary Metric</th><th>Secondary Metric</th><th>Conversion Metric</th></tr>
+    <tr><td>Pinterest</td><td>Monthly viewers / Impressions</td><td>Pin saves</td><td>Outbound clicks to store</td></tr>
+    <tr><td>Instagram</td><td>Reel plays / Reach</td><td>Profile visits → Follow rate</td><td>DM funnel → email captures</td></tr>
+    <tr><td>TikTok</td><td>Views per video</td><td>Profile visits</td><td>Link clicks / TikTok Shop sales</td></tr>
+    <tr><td>YouTube</td><td>Watch time / Impressions CTR</td><td>Subscribers</td><td>Description link clicks</td></tr>
+    <tr><td>X/Twitter</td><td>Impressions / Engagements</td><td>Profile clicks</td><td>Link clicks</td></tr>
+  </table>
+</div>
+
+<!-- TOOLS & RESOURCES -->
+<h2>11. Recommended Tools</h2>
+<div class="strategy-section">
+  <table>
+    <tr><th>Tool</th><th>Purpose</th><th>Cost</th></tr>
+    <tr><td><strong>Tailwind</strong></td><td>Pinterest scheduling, SmartSchedule, analytics</td><td>$15/mo</td></tr>
+    <tr><td><strong>Later</strong></td><td>Instagram & TikTok scheduling, visual planner</td><td>Free–$25/mo</td></tr>
+    <tr><td><strong>ManyChat</strong></td><td>Instagram DM automation funnels</td><td>Free–$15/mo</td></tr>
+    <tr><td><strong>Canva Pro</strong></td><td>Pin designs, story templates, thumbnails</td><td>$13/mo</td></tr>
+    <tr><td><strong>CapCut</strong></td><td>TikTok/Reels video editing</td><td>Free</td></tr>
+    <tr><td><strong>Pinterest Trends</strong></td><td>Trend research, keyword planning</td><td>Free</td></tr>
+    <tr><td><strong>Buffer</strong></td><td>X/Twitter scheduling</td><td>Free–$6/mo</td></tr>
+  </table>
+</div>
+
+<!-- QUICK START ACTIONS -->
+<h2>12. Quick-Start Action Plan (Week 1)</h2>
+<div class="strategy-section">
+  <table>
+    <tr><th>#</th><th>Action</th><th>Platform</th><th>Time</th></tr>
+    <tr><td>1</td><td>Set up Pinterest business account, create 8 boards (see structure above), pin 5 products to each</td><td>Pinterest</td><td>2 hrs</td></tr>
+    <tr><td>2</td><td>Optimize Instagram bio, create 5 highlights, post first episodic Reel</td><td>Instagram</td><td>1 hr</td></tr>
+    <tr><td>3</td><td>Create Instagram Broadcast Channel, invite followers to join</td><td>Instagram</td><td>30 min</td></tr>
+    <tr><td>4</td><td>Film 5 TikTok videos (2 GRWM, 2 OOTD, 1 design process BTS)</td><td>TikTok</td><td>2 hrs</td></tr>
+    <tr><td>5</td><td>Set up Tailwind for Pinterest, schedule first 2 weeks of pins</td><td>Pinterest</td><td>1 hr</td></tr>
+    <tr><td>6</td><td>Write 3 aesthetic threads for X, schedule with Buffer</td><td>X/Twitter</td><td>45 min</td></tr>
+    <tr><td>7</td><td>Create YouTube channel art, upload first Short (cross-post from TikTok)</td><td>YouTube</td><td>30 min</td></tr>
+    <tr><td>8</td><td>Identify 10 nano-influencers in whimsigoth/cottagecore niche, DM 5</td><td>All</td><td>1 hr</td></tr>
+  </table>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Maiden Bloom Social Media Content Strategy — Compiled March 14, 2026</p>
+  <p>Sources: BitBranding (Instagram Strategies 2026), Stackmatix (TikTok Fashion Advertising), TZS Digital (YouTube Strategy), Avenue Z (X Organic Guide), Brandwatch (X Algorithm), Printful (Pinterest Statistics 2026, Fashion Trends 2026), Pinterest Business (2026 Marketing Moments Guide)</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etsy Hoodie Market Research Report - February 14, 2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f7fafc; color: #2d3748; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, #2d3748, #4a5568); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; }
+header h1 { font-size: 2.2em; margin-bottom: 8px; }
+header .subtitle { font-size: 1.1em; opacity: 0.85; }
+header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.7; }
+.section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.section h2 { font-size: 1.5em; color: #2d3748; margin-bottom: 20px; border-bottom: 3px solid #e53e3e; padding-bottom: 10px; }
+.section h3 { font-size: 1.2em; color: #4a5568; margin: 20px 0 12px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.metric-card { background: #f7fafc; border-radius: 8px; padding: 20px; border-left: 4px solid #e53e3e; }
+.metric-card .label { font-size: 0.85em; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-card .value { font-size: 2em; font-weight: 700; color: #2d3748; margin: 4px 0; }
+.metric-card .detail { font-size: 0.9em; color: #4a5568; }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; }
+.badge-green { background: #c6f6d5; color: #22543d; }
+.badge-yellow { background: #fefcbf; color: #744210; }
+.badge-red { background: #fed7d7; color: #9b2c2c; }
+.badge-blue { background: #bee3f8; color: #2a4365; }
+.badge-purple { background: #e9d5ff; color: #553c9a; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; }
+th { background: #2d3748; color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+tr:hover { background: #f7fafc; }
+.bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 200px; margin: 20px 0; padding: 0 10px; }
+.bar { flex: 1; background: linear-gradient(180deg, #e53e3e, #c53030); border-radius: 4px 4px 0 0; transition: all 0.3s; position: relative; min-width: 20px; }
+.bar:hover { opacity: 0.8; }
+.bar .bar-label { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); font-size: 0.7em; white-space: nowrap; color: #718096; }
+.bar .bar-value { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 0.7em; font-weight: 600; color: #2d3748; white-space: nowrap; }
+.niche-card { background: #f7fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+.niche-card h4 { color: #e53e3e; margin-bottom: 8px; font-size: 1.1em; }
+.niche-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.niche-card .tag { background: #edf2f7; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; color: #4a5568; }
+.insight-box { background: #fffff0; border: 1px solid #fefcbf; border-radius: 8px; padding: 16px; margin: 12px 0; }
+.insight-box.green { background: #f0fff4; border-color: #c6f6d5; }
+.insight-box.blue { background: #ebf8ff; border-color: #bee3f8; }
+.insight-box.red { background: #fff5f5; border-color: #fed7d7; }
+.prompt-template { background: #1a202c; color: #a0aec0; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 0.85em; margin: 10px 0; white-space: pre-wrap; }
+.prompt-template .highlight { color: #68d391; }
+ul { padding-left: 20px; }
+ul li { margin: 6px 0; }
+@media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <h1>Etsy Hoodie Market Research Report</h1>
+    <div class="subtitle">Comprehensive Analysis: Design Trends, Keywords, Pricing & Niche Opportunities</div>
+    <div class="meta">Research Date: February 14, 2026 | Cycle: 1 (Baseline) | Sources: Etsy + Everbee, Keywords Everywhere, Printify</div>
+</header>
+
+<div class="section">
+    <h2>Executive Summary</h2>
+    <div class="grid-3">
+        <div class="metric-card">
+            <div class="label">Top Keyword Volume</div>
+            <div class="value">450K</div>
+            <div class="detail">"hoodie" - peaks Jan at 823K</div>
+        </div>
+        <div class="metric-card" style="border-color: #38a169;">
+            <div class="label">Best POD Opportunity</div>
+            <div class="value">Graphic</div>
+            <div class="detail">49.5K monthly searches, Very High POD relevance</div>
+        </div>
+        <div class="metric-card" style="border-color: #3182ce;">
+            <div class="label">Top Etsy Conversion</div>
+            <div class="value">1.7%</div>
+            <div class="detail">Celestial/Boho Moon Phase hoodie (240 sales/mo)</div>
+        </div>
+    </div>
+
+    <div class="insight-box green" style="margin-top:20px;">
+        <strong>Key Finding:</strong> The hoodie market shows extremely strong seasonal patterns with 2-4x volume increases from October through January. For POD sellers, the sweet spot is graphic/design-focused hoodies in the $35-$55 price range using Gildan 18500 blanks on Printify Premium, yielding 50-65% margins. The top-performing Etsy niches right now are celestial/boho (240 sales/mo with 1.7% conversion), wildflower/botanical, and funny/embroidered designs.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top 15 Hoodie Keywords by Search Volume</h2>
+    <div class="bar-chart">
+        <div class="bar" style="height:100%;"><div class="bar-value">450K</div><div class="bar-label">hoodie</div></div>
+        <div class="bar" style="height:16.4%;"><div class="bar-value">74K</div><div class="bar-label">oversized</div></div>
+        <div class="bar" style="height:13.4%;"><div class="bar-value">60.5K</div><div class="bar-label">zip up</div></div>
+        <div class="bar" style="height:11%;"><div class="bar-value">49.5K</div><div class="bar-label">graphic</div></div>
+        <div class="bar" style="height:9%;"><div class="bar-value">40.5K</div><div class="bar-label">custom</div></div>
+        <div class="bar" style="height:7.4%;"><div class="bar-value">33.1K</div><div class="bar-label">blanket</div></div>
+        <div class="bar" style="height:6%;"><div class="bar-value">27.1K</div><div class="bar-label">streetwear</div></div>
+        <div class="bar" style="height:4.9%;"><div class="bar-value">22.2K</div><div class="bar-label">cropped</div></div>
+        <div class="bar" style="height:2.2%;"><div class="bar-value">9.9K</div><div class="bar-label">vintage</div></div>
+        <div class="bar" style="height:2.2%;background:linear-gradient(180deg,#e53e3e,#9b2c2c);"><div class="bar-value">9.9K</div><div class="bar-label">y2k</div></div>
+        <div class="bar" style="height:1.8%;background:linear-gradient(180deg,#dd6b20,#c05621);"><div class="bar-value">8.1K</div><div class="bar-label">anime</div></div>
+        <div class="bar" style="height:1.8%;background:linear-gradient(180deg,#dd6b20,#c05621);"><div class="bar-value">8.1K</div><div class="bar-label">embroidered</div></div>
+        <div class="bar" style="height:1.5%;background:linear-gradient(180deg,#38a169,#276749);"><div class="bar-value">6.6K</div><div class="bar-label">bear</div></div>
+        <div class="bar" style="height:1.2%;background:linear-gradient(180deg,#38a169,#276749);"><div class="bar-value">5.4K</div><div class="bar-label">fox</div></div>
+        <div class="bar" style="height:1%;background:linear-gradient(180deg,#3182ce,#2c5282);"><div class="bar-value">4.4K</div><div class="bar-label">skeleton</div></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top Performing Etsy Listings (Everbee Data)</h2>
+    <table>
+        <tr><th>Product</th><th>Shop</th><th>Price</th><th>Rating</th><th>Mo. Sales</th><th>Views</th><th>Conv %</th><th>Design Style</th></tr>
+        <tr><td>Celestial Sweatshirt Boho Moon Phase</td><td>ISHIRTLAB</td><td>CA$16.87</td><td>4.8 (4.4K)</td><td><strong>240</strong></td><td>133,714</td><td><strong>1.70%</strong></td><td><span class="badge badge-purple">Celestial/Boho</span></td></tr>
+        <tr><td>Wildflowers Sweatshirt</td><td>CozyThreadsCustoms</td><td>CA$31.89</td><td>4.8 (7.3K)</td><td><strong>21</strong></td><td>151,538</td><td><strong>1.09%</strong></td><td><span class="badge badge-green">Floral</span></td></tr>
+        <tr><td>Custom Hoodie Front+Back</td><td>KashyGear</td><td>CA$41.25</td><td>4.9 (2.1K)</td><td><strong>20</strong></td><td>32,378</td><td>0.13%</td><td><span class="badge badge-blue">Custom</span></td></tr>
+        <tr><td>Blue Wildflower Hoodie</td><td>SisterlyGiftsShop</td><td>CA$60.59</td><td>4.9 (1.3K)</td><td><strong>15</strong></td><td>85,364</td><td>0.57%</td><td><span class="badge badge-green">Botanical</span></td></tr>
+        <tr><td>Embroidered Crow & Peonies</td><td>Graphicine</td><td>CA$202.81</td><td>5.0 (3.6K)</td><td>2</td><td>1,619</td><td>0.19%</td><td><span class="badge badge-purple">Gothic Floral</span></td></tr>
+        <tr><td>Great Wave Kanagawa Hokusai</td><td>CacofoniaMilano</td><td>CA$144.50</td><td>4.6 (649)</td><td>-</td><td>5,752</td><td>0.59%</td><td><span class="badge badge-blue">Japanese Art</span></td></tr>
+    </table>
+
+    <div class="insight-box">
+        <strong>Everbee Insight:</strong> The Celestial/Boho Moon Phase hoodie dominates with 240 monthly sales and the highest conversion rate (1.7%). At only CA$16.87, it's a high-volume play. Meanwhile, the Wildflower Sweatshirt gets the most views (151K) with a solid 1.09% conversion. Botanical and celestial themes are the clear winners for POD on Etsy.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top Niche Opportunities for POD Shops</h2>
+    <div class="grid-2">
+        <div class="niche-card">
+            <h4>1. Japanese Art & Culture <span class="badge badge-green">STRONG BUY</span></h4>
+            <p>~5,000 searches/mo combined. Rising trend. Great Wave, koi fish, samurai, cherry blossom designs. Price target: $45-$60.</p>
+            <div class="tags">
+                <span class="tag">Ukiyo-e</span><span class="tag">Koi Fish</span><span class="tag">Samurai</span>
+                <span class="tag">Dragons</span><span class="tag">Cherry Blossom</span><span class="tag">Torii Gate</span>
+                <span class="tag">Kanji</span><span class="tag">Great Wave</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>2. Celestial & Mystical <span class="badge badge-green">STRONG BUY</span></h4>
+            <p>~4,000 searches/mo. Proven Etsy bestseller (240 sales/mo). Moon phases, zodiac, tarot. Price target: $35-$50.</p>
+            <div class="tags">
+                <span class="tag">Moon Phases</span><span class="tag">Sun & Moon</span><span class="tag">Zodiac</span>
+                <span class="tag">Tarot</span><span class="tag">Evil Eye</span><span class="tag">Celestial Bodies</span>
+                <span class="tag">Hamsa</span><span class="tag">Sacred Geometry</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>3. Animal Spirit Art <span class="badge badge-green">STRONG BUY</span></h4>
+            <p>15,000+ searches/mo combined. Wolf (3.6K), fox (5.4K), bear (6.6K). Low-medium competition. Price target: $40-$50.</p>
+            <div class="tags">
+                <span class="tag">Wolf</span><span class="tag">Fox</span><span class="tag">Bear</span>
+                <span class="tag">Owl</span><span class="tag">Deer</span><span class="tag">Raven</span>
+                <span class="tag">Cat</span><span class="tag">Raccoon</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>4. Anime & Manga <span class="badge badge-yellow">BUY</span></h4>
+            <p>8,100+ searches/mo. Rising fast (peaked 18.1K in Jan). Gen Z audience. Must be original art. Price target: $40-$55.</p>
+            <div class="tags">
+                <span class="tag">Anime Style</span><span class="tag">Manga Panels</span><span class="tag">Chibi</span>
+                <span class="tag">Japanese Text</span><span class="tag">Kawaii</span><span class="tag">Neon</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>5. Gothic & Dark Art <span class="badge badge-yellow">BUY</span></h4>
+            <p>~8,000 searches/mo combined. Steady demand. Skulls, moths, ravens, dark florals. Price target: $40-$55.</p>
+            <div class="tags">
+                <span class="tag">Skull + Flowers</span><span class="tag">Moths</span><span class="tag">Ravens</span>
+                <span class="tag">Dark Florals</span><span class="tag">Skeleton</span><span class="tag">Dark Academia</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>6. Mushroom & Cottagecore <span class="badge badge-green">STRONG BUY</span></h4>
+            <p>Lower volume (~720/mo) but very low competition. High engagement niche. Price target: $35-$45.</p>
+            <div class="tags">
+                <span class="tag">Mushrooms</span><span class="tag">Toadstools</span><span class="tag">Ferns</span>
+                <span class="tag">Forest Flora</span><span class="tag">Snails</span><span class="tag">Wildflowers</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>7. Y2K & Retro Streetwear <span class="badge badge-yellow">BUY</span></h4>
+            <p>9,900 searches/mo. Rising trend with Gen Z. Chrome text, retro graphics. Price target: $45-$60.</p>
+            <div class="tags">
+                <span class="tag">Chrome Text</span><span class="tag">8-Ball</span><span class="tag">Flames</span>
+                <span class="tag">Butterflies</span><span class="tag">Retro 2000s</span><span class="tag">Stars</span>
+            </div>
+        </div>
+        <div class="niche-card">
+            <h4>8. Viking & Norse <span class="badge badge-yellow">BUY</span></h4>
+            <p>1,300 searches/mo with strong seasonal peaks (7.4x). Passionate niche audience. Price target: $45-$55.</p>
+            <div class="tags">
+                <span class="tag">Odin</span><span class="tag">Thor's Hammer</span><span class="tag">Runes</span>
+                <span class="tag">Valknut</span><span class="tag">Norse Wolves</span><span class="tag">Ravens</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Design Color Palettes by Niche</h2>
+    <table>
+        <tr><th>Niche</th><th>Primary Colors</th><th>Background</th><th>Accent</th><th>Mood</th></tr>
+        <tr><td>Japanese Art</td><td>Deep navy, red, gold</td><td>Black, dark navy</td><td>White, gold</td><td>Traditional, dramatic</td></tr>
+        <tr><td>Celestial/Boho</td><td>Gold, silver, midnight blue</td><td>Navy, black</td><td>White, soft gold</td><td>Mystical, dreamy</td></tr>
+        <tr><td>Gothic/Dark</td><td>Black, deep purple, dark red</td><td>Black</td><td>White line art</td><td>Dark, romantic</td></tr>
+        <tr><td>Floral/Botanical</td><td>Sage green, dusty pink, cream</td><td>Forest green, navy</td><td>White, gold</td><td>Natural, serene</td></tr>
+        <tr><td>Anime/Manga</td><td>Bright pink, cyan, yellow</td><td>Black, white</td><td>Neon accents</td><td>Energetic, bold</td></tr>
+        <tr><td>Y2K/Retro</td><td>Chrome silver, hot pink, lime</td><td>Black, white</td><td>Iridescent</td><td>Nostalgic, fun</td></tr>
+        <tr><td>Animal Spirit</td><td>Earth tones, forest green</td><td>Dark forest, charcoal</td><td>Amber, copper</td><td>Wild, natural</td></tr>
+        <tr><td>Mushroom/Cottage</td><td>Earthy brown, rust, cream</td><td>Forest green, cream</td><td>Terracotta</td><td>Whimsical, cozy</td></tr>
+        <tr><td>Viking/Norse</td><td>Black, dark grey, blood red</td><td>Black, charcoal</td><td>Gold, amber</td><td>Powerful, ancient</td></tr>
+        <tr><td>Cyberpunk</td><td>Neon pink, cyan, purple</td><td>Black</td><td>Electric blue</td><td>Futuristic, digital</td></tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>AI Prompt Design Templates</h2>
+    <h3>Japanese Art Niche</h3>
+    <div class="prompt-template"><span class="highlight">[Style]</span> Traditional Japanese ukiyo-e woodblock print style
+<span class="highlight">[Subject]</span> {koi fish swimming upstream / samurai warrior / great wave / dragon coiled around cherry blossom tree}
+<span class="highlight">[Colors]</span> Deep navy blue, rich red, metallic gold accents, white foam details
+<span class="highlight">[Composition]</span> Centered design for front print, detailed illustration, vintage worn texture
+<span class="highlight">[Technical]</span> High resolution 4500x5400px, 300 DPI, transparent or dark background, print-ready</div>
+
+    <h3>Celestial/Boho Niche</h3>
+    <div class="prompt-template"><span class="highlight">[Style]</span> Minimalist celestial line art with boho aesthetic
+<span class="highlight">[Subject]</span> {moon phase progression / sun and crescent moon face / zodiac constellation / tarot card design}
+<span class="highlight">[Colors]</span> Gold metallic on dark navy, white line work, subtle star sparkles
+<span class="highlight">[Composition]</span> Horizontal chest-width design or vertical back print, symmetrical layout
+<span class="highlight">[Technical]</span> High resolution 4500x5400px, 300 DPI, transparent background, clean vector style</div>
+
+    <h3>Gothic/Dark Art Niche</h3>
+    <div class="prompt-template"><span class="highlight">[Style]</span> Dark romantic illustration, vintage engraving aesthetic
+<span class="highlight">[Subject]</span> {death's head moth with florals / raven perched on skull with peonies / skeleton reading among roses}
+<span class="highlight">[Colors]</span> White/cream line art on black, subtle purple or red accents
+<span class="highlight">[Composition]</span> Centered front chest print or full back print, detailed botanical elements
+<span class="highlight">[Technical]</span> High resolution 4500x5400px, 300 DPI, black or transparent background</div>
+
+    <h3>Animal Spirit Art Niche</h3>
+    <div class="prompt-template"><span class="highlight">[Style]</span> Detailed wildlife illustration with artistic flourishes
+<span class="highlight">[Subject]</span> {wolf howling at geometric moon / fox in enchanted forest / bear with mountain landscape / owl with celestial symbols}
+<span class="highlight">[Colors]</span> Earth tones, forest greens, warm amber, copper accents
+<span class="highlight">[Composition]</span> Portrait-style centered design, nature elements framing the animal
+<span class="highlight">[Technical]</span> High resolution 4500x5400px, 300 DPI, transparent or dark background</div>
+</div>
+
+<div class="section">
+    <h2>Printify Supplier Pricing Guide</h2>
+    <table>
+        <tr><th>Hoodie</th><th>Brand</th><th>Cost (Premium)</th><th>Retail Target</th><th>Net Profit</th><th>Best For</th></tr>
+        <tr><td>Gildan 18500</td><td>Gildan</td><td>$15.64</td><td>$39.99-$49.99</td><td>$14.80-$27.85</td><td>Best value - main workhorse for most niches</td></tr>
+        <tr><td>Gildan 18600</td><td>Gildan</td><td>$16.50</td><td>$44.99-$54.99</td><td>$18.65-$28.65</td><td>Zip-up option</td></tr>
+        <tr><td>Bella+Canvas 3719</td><td>Bella+Canvas</td><td>$22.40</td><td>$54.99-$69.99</td><td>$22.74-$37.74</td><td>Premium feel, Y2K/streetwear</td></tr>
+        <tr><td>AOP Hoodie</td><td>Various</td><td>$28.00</td><td>$69.99-$89.99</td><td>$31.74-$51.74</td><td>Full coverage designs (cyberpunk, galaxy)</td></tr>
+        <tr><td>Comfort Colors 1567</td><td>Comfort Colors</td><td>$24.00</td><td>$54.99-$69.99</td><td>$23.84-$38.84</td><td>Vintage/garment-dyed look</td></tr>
+    </table>
+    <div class="insight-box blue">
+        <strong>Supplier Strategy:</strong> Start with Gildan 18500 on Printify Premium plan ($15.64/unit). At a $44.99 retail price, after Etsy fees (~13%), you net ~$23.50 profit per sale. The Premium plan pays for itself after just 2-3 sales per month. Always order samples before launching.
+    </div>
+</div>
+
+<div class="section">
+    <h2>Recommended Shop Launch Strategy</h2>
+    <div class="grid-2">
+        <div class="niche-card" style="border: 2px solid #38a169;">
+            <h4>Shop 1: Japanese Art & Culture</h4>
+            <p><strong>Why:</strong> Rising search volume, unique art style hard to compete with, premium pricing ($45-$60)</p>
+            <p><strong>Launch:</strong> 15-20 designs featuring koi, samurai, dragons, cherry blossoms, Great Wave variations</p>
+            <p><strong>Revenue Target:</strong> $1,500-$3,000/mo</p>
+            <p><strong>Priority:</strong> <span class="badge badge-green">9/10</span></p>
+        </div>
+        <div class="niche-card" style="border: 2px solid #38a169;">
+            <h4>Shop 2: Celestial & Mystical</h4>
+            <p><strong>Why:</strong> Proven Etsy bestseller category (240 sales/mo), high conversion rates, broad appeal</p>
+            <p><strong>Launch:</strong> 20-25 designs: moon phases, zodiac sets, tarot card art, evil eye, sun/moon</p>
+            <p><strong>Revenue Target:</strong> $2,000-$4,000/mo</p>
+            <p><strong>Priority:</strong> <span class="badge badge-green">9/10</span></p>
+        </div>
+        <div class="niche-card" style="border: 2px solid #3182ce;">
+            <h4>Shop 3: Animal Spirit Art</h4>
+            <p><strong>Why:</strong> Highest combined search volume (15K+), wolf (low competition at 0.81), broad appeal</p>
+            <p><strong>Launch:</strong> 20-30 designs: wolf, fox, bear, owl, deer, raven in artistic/nature settings</p>
+            <p><strong>Revenue Target:</strong> $2,500-$5,000/mo</p>
+            <p><strong>Priority:</strong> <span class="badge badge-yellow">8/10</span></p>
+        </div>
+        <div class="niche-card" style="border: 2px solid #3182ce;">
+            <h4>Shop 4: Gothic & Dark Art</h4>
+            <p><strong>Why:</strong> Passionate niche audience, pairs well with skeleton seasonal spikes, premium pricing</p>
+            <p><strong>Launch:</strong> 15-20 designs: skull florals, moths, ravens, dark botanical</p>
+            <p><strong>Revenue Target:</strong> $1,500-$3,500/mo</p>
+            <p><strong>Priority:</strong> <span class="badge badge-yellow">8/10</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Seasonality Insights</h2>
+    <div class="insight-box red">
+        <strong>Critical Timing:</strong> Hoodie search volume peaks from October through January (2-4x summer volumes). You should have listings live and optimized by September to catch the ramp-up. The absolute peak is December-January for most categories. Plan AI design generation for July-August to have everything ready for the fall season.
+    </div>
+    <table>
+        <tr><th>Category</th><th>Peak Season</th><th>Peak vs Low Ratio</th><th>Action</th></tr>
+        <tr><td>Oversized hoodie</td><td>Oct-Jan</td><td>37x (!)</td><td>Massive seasonal - must capitalize</td></tr>
+        <tr><td>Streetwear hoodie</td><td>Oct-Dec</td><td>17x</td><td>Launch collection by September</td></tr>
+        <tr><td>Skeleton hoodie</td><td>Oct-Dec (Halloween)</td><td>6x</td><td>Halloween-specific designs</td></tr>
+        <tr><td>Viking hoodie</td><td>Nov-Feb</td><td>7x</td><td>Winter/gift season peak</td></tr>
+        <tr><td>Graphic hoodie</td><td>Jan-Feb</td><td>4x</td><td>Year-round with winter peak</td></tr>
+        <tr><td>Anime hoodie</td><td>Dec-Jan</td><td>3x</td><td>Gift season + convention season</td></tr>
+        <tr><td>Y2K hoodie</td><td>Feb (fashion season)</td><td>3x</td><td>Fashion trend cycles</td></tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Next Steps & Research Schedule</h2>
+    <ul>
+        <li><strong>Week 1:</strong> Choose first 2 shop niches, create 10 test designs using AI prompt templates</li>
+        <li><strong>Week 2:</strong> Set up Printify account (Premium plan), order samples of Gildan 18500</li>
+        <li><strong>Week 3:</strong> Create Etsy shops, list initial 10-15 products per shop</li>
+        <li><strong>Week 4:</strong> Optimize listings based on keyword data, start Etsy ads ($5-10/day)</li>
+        <li><strong>Ongoing:</strong> Re-run this market research every 3-5 days to track trends and identify new opportunities</li>
+    </ul>
+</div>
+
+<div style="text-align:center; padding:30px; color:#718096; font-size:0.85em;">
+    Generated by POD Automation System | Research Cycle 1 | February 14, 2026<br>
+    Data sources: Etsy (Everbee), Keywords Everywhere, Printify, Web Research
+</div>
+
+</div>
+</body>
+</html>
