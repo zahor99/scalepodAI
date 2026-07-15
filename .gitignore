@@ -46,3 +46,8 @@ data/
 
 # Backups (created by init before overwriting managed files)
 .backups/
+
+# secrets — never commit
+etsykeys.md
+*.secret
+.env
