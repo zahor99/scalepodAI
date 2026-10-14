@@ -575,7 +575,7 @@
         <div class="section-sub">Same workspace, two budgets. Pitches are cheap and capped so a lost deal costs almost nothing. Client briefs run the full path with approvals.</div>
         <div class="grid-2">
             <div class="card mode pitch">
-                <span class="cost">≈ 6 cr</span>
+                <span class="cost">≈ 6 cr, typical</span>
                 <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l6-6M14 4l6 6-8 8-6-6 8-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <h3>Pitch mode</h3>
                 <p>For a prospect you have not won yet. No gates, one pitch card.</p>
@@ -587,7 +587,7 @@
                 </ul>
             </div>
             <div class="card mode">
-                <span class="cost">≈ 48 cr</span>
+                <span class="cost">≈ 48 cr, typical</span>
                 <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 9h10M7 13h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
                 <h3>Client mode</h3>
                 <p>For a signed client. The full path, with a gate at every step that matters.</p>
@@ -837,7 +837,7 @@
             <div class="form-note">No newsletter. We reply from a person. Already have a workspace? <a href="https://app.scalepod.ai/login">Log in</a></div>
             <div class="form-msg ok" id="accessOk" role="status">Request received. We will be in touch with your invite.</div>
             <div class="form-msg fallback" id="accessFallback" role="status">
-                The request service is not reachable right now, so we opened an email instead. If nothing opened, write to <a id="accessMailto" href="mailto:wellnesspresso@gmail.com">wellnesspresso@gmail.com</a> with your agency name.
+                The request service is not reachable right now, so we opened an email instead. If nothing opened, write to <a id="accessMailto" href="mailto:gergely@startleadflowautomation.com">gergely@startleadflowautomation.com</a> with your agency name.
             </div>
         </div>
     </div>
@@ -859,7 +859,7 @@
                 <a href="#request-access">Request access</a>
                 <a href="privacy.html">Privacy policy</a>
                 <a href="terms.html">Terms of service</a>
-                <a href="mailto:wellnesspresso@gmail.com">Contact</a>
+                <a href="mailto:gergely@startleadflowautomation.com">Contact</a>
             </div>
             <div class="footer-copy">&copy; 2026 ScalePOD AI. All rights reserved.</div>
         </div>
@@ -881,7 +881,7 @@ document.querySelectorAll('#navLinks a').forEach(function (a) {
 
 // Request access: POST JSON to the app; if the app or its DNS is not reachable, fall back to a prefilled email.
 var ACCESS_ENDPOINT = 'https://app.scalepod.ai/sp/api/register/request';
-var CONTACT_EMAIL = 'wellnesspresso@gmail.com';
+var CONTACT_EMAIL = 'gergely@startleadflowautomation.com';
 
 document.getElementById('accessForm').addEventListener('submit', async function (e) {
     e.preventDefault();
