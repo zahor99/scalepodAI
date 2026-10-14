@@ -3,447 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScalePOD — Print-on-Demand Product Studio & Seller Tools</title>
-    <meta name="description" content="Design studio and seller tools for Print-on-Demand businesses. Create artwork, manage products, optimize listings, and grow your shop with data-driven insights.">
-    <meta property="og:title" content="ScalePOD — Print-on-Demand Product Studio & Seller Tools">
-    <meta property="og:description" content="Design studio and seller tools for Print-on-Demand businesses. Create artwork, manage products, optimize listings, and grow your shop with data-driven insights.">
+    <title>ScalePOD AI — from brief to print-ready, for merch agencies</title>
+    <meta name="description" content="ScalePOD AI turns a brief into a concept board, a client-approved design, print-ready files and a quote, in hours instead of days. Built for agencies that design every piece per client.">
+    <meta property="og:title" content="ScalePOD AI — from brief to print-ready, for merch agencies">
+    <meta property="og:description" content="A brief in. A concept board, a client-approved design, print-ready files and a quote out, in hours instead of days. For agencies that design every piece per client.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scalepod.ai">
-    <meta property="og:image" content="https://scalepod.ai/images/og-banner.webp">
+    <meta property="og:image" content="https://scalepod.ai/images/og.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="p:domain_verify" content="d7fa58d87c602749615a8ff49ff8d534"/>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F172A'/%3E%3Cpath d='M10 22V14l6-4 6 4v8' stroke='%2306B6D4' stroke-width='2' fill='none'/%3E%3Cpath d='M16 10v-3m0 0l3 2m-3-2l-3 2' stroke='%2322C55E' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2306B6D4'/%3E%3Cstop offset='1' stop-color='%233B82F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cg transform='translate(8 8)'%3E%3Cpath d='M10 2L17 7v8l-7 5-7-5V7l7-5z' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3Cpath d='M10 2v5m0 0l4 3m-4-3l-4 3' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* Tokens: DESIGN.md (ScalePOD AI, 2026-10-14), dark set */
         :root {
-            --midnight: #0F172A;
-            --navy: #1E293B;
-            --navy-light: #334155;
-            --cyan: #06B6D4;
-            --blue: #3B82F6;
-            --green: #22C55E;
-            --amber: #F59E0B;
-            --emerald: #10B981;
-            --red: #EF4444;
-            --slate-400: #94A3B8;
-            --slate-300: #CBD5E1;
-            --slate-100: #F1F5F9;
-            --white: #F8FAFC;
-            --gradient-cyan: linear-gradient(135deg, #06B6D4, #3B82F6);
-            --gradient-green: linear-gradient(135deg, #22C55E, #06B6D4);
-            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.15);
-            --radius: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
+            --bg: #0F172A;
+            --surface: #1E293B;
+            --surface-2: #243044;
+            --border: #334155;
+            --text: #F1F5F9;
+            --text-muted: #94A3B8;
+            --accent: #06B6D4;
+            --accent-2: #3B82F6;
+            --cta: #F59E0B;
+            --success: #10B981;
+            --danger: #F43F5E;
+            --violet: #A78BFA;
+            --accent-gradient: linear-gradient(135deg, #06B6D4, #3B82F6);
+            --r-card: 10px;
+            --r-btn: 8px;
+            --r-chip: 6px;
+            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--midnight);
-            color: var(--slate-300);
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text-muted);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        a { color: var(--cyan); text-decoration: none; transition: color 0.2s; }
-        a:hover { color: var(--blue); }
-
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-2); }
+        a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+            outline: 2px solid var(--accent); outline-offset: 2px;
+        }
+        .mono { font-family: var(--mono); font-weight: 500; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
         /* ========== NAV ========== */
         nav {
             position: fixed; top: 16px; left: 16px; right: 16px; z-index: 100;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(6, 182, 212, 0.08);
-            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            border-radius: var(--r-card);
             max-width: 1200px; margin: 0 auto;
         }
-        .nav-inner {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 14px 24px;
-        }
-        .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
+        .logo { display: flex; align-items: center; gap: 8px; }
         .logo-mark {
-            width: 36px; height: 36px; border-radius: 10px;
-            background: var(--gradient-cyan); display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+            background: var(--accent-gradient); display: flex; align-items: center; justify-content: center;
         }
         .logo-mark svg { width: 20px; height: 20px; }
-        .logo-text { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
-        .logo-text span { color: var(--cyan); }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
-        .nav-links a {
-            color: var(--slate-300); font-size: 14px; font-weight: 500;
-            transition: color 0.2s; cursor: pointer;
-        }
-        .nav-links a:hover { color: var(--white); }
+        .logo-text { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
+        .logo-text span { color: var(--accent); }
+        .logo-suffix { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-left: 2px; }
+        .nav-links { display: flex; gap: 26px; align-items: center; }
+        .nav-links a { color: var(--text); font-size: 14px; font-weight: 500; opacity: 0.85; }
+        .nav-links a:hover { opacity: 1; color: var(--text); }
+        .nav-links a.login { opacity: 1; color: var(--accent); font-weight: 600; }
         .btn-nav {
             display: inline-flex; align-items: center; gap: 6px;
-            background: var(--gradient-green); color: var(--midnight);
-            padding: 9px 20px; border-radius: 10px;
-            font-weight: 700; font-size: 14px; border: none; cursor: pointer;
-            transition: opacity 0.2s, transform 0.2s;
+            background: var(--accent-gradient); color: #0B1220 !important;
+            padding: 9px 16px; border-radius: var(--r-btn);
+            font-weight: 700; font-size: 14px; border: none; cursor: pointer; opacity: 1 !important;
+            transition: transform 0.2s, filter 0.2s;
         }
-        .btn-nav:hover { opacity: 0.9; transform: translateY(-1px); color: var(--midnight); }
+        .btn-nav:hover { transform: translateY(-1px); filter: brightness(1.05); }
         .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .mobile-toggle svg { width: 24px; height: 24px; stroke: var(--white); }
+        .mobile-toggle svg { width: 24px; height: 24px; stroke: var(--text); }
 
-        /* ========== HERO ========== */
-        .hero {
-            padding: 180px 0 100px; text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .hero-glow {
-            position: absolute; top: -300px; left: 50%; transform: translateX(-50%);
-            width: 900px; height: 900px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 100px; padding: 7px 18px; margin-bottom: 28px;
-            font-size: 13px; color: var(--green); font-weight: 600;
-        }
-        .badge-dot {
-            width: 7px; height: 7px; border-radius: 50%; background: var(--green);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .hero h1 {
-            font-size: clamp(42px, 6vw, 76px); font-weight: 800; line-height: 1.04;
-            color: var(--white); margin-bottom: 24px; letter-spacing: -0.03em;
-        }
-        .hero h1 .accent {
-            background: var(--gradient-cyan); -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-sub {
-            font-size: clamp(17px, 2vw, 21px); max-width: 620px; margin: 0 auto 40px;
-            color: var(--slate-300); line-height: 1.7;
-        }
-        .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        /* ========== BUTTONS ========== */
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--gradient-green); color: var(--midnight);
-            padding: 15px 32px; border-radius: var(--radius);
-            font-weight: 700; font-size: 16px; border: none; cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 24px rgba(34, 197, 94, 0.25);
+            background: var(--accent-gradient); color: #0B1220;
+            padding: 14px 26px; border-radius: var(--r-btn);
+            font-weight: 700; font-size: 16px; border: none; cursor: pointer; font-family: var(--sans);
+            transition: transform 0.2s, filter 0.2s;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.35); }
+        .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); color: #0B1220; }
         .btn-primary svg { width: 18px; height: 18px; }
         .btn-secondary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: transparent; color: var(--white);
-            padding: 15px 32px; border-radius: var(--radius);
-            font-weight: 600; font-size: 16px;
-            border: 1px solid var(--navy-light); cursor: pointer;
+            background: transparent; color: var(--text);
+            padding: 14px 26px; border-radius: var(--r-btn);
+            font-weight: 600; font-size: 16px; font-family: var(--sans);
+            border: 1px solid var(--border); cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
         }
-        .btn-secondary:hover { border-color: var(--cyan); background: rgba(6, 182, 212, 0.04); }
-        .btn-secondary svg { width: 18px; height: 18px; stroke: var(--cyan); }
+        .btn-secondary:hover { border-color: var(--accent); background: rgba(6, 182, 212, 0.05); color: var(--text); }
+        .btn-secondary svg { width: 18px; height: 18px; stroke: var(--accent); }
 
-        /* ========== HERO IMAGE ========== */
-        .hero-image {
-            margin-top: 64px; position: relative;
-            max-width: 960px; margin-left: auto; margin-right: auto;
-        }
-        .hero-image-placeholder {
-            width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-xl);
-            background: var(--navy); border: 1px solid rgba(6, 182, 212, 0.1);
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden; position: relative;
-        }
-        .hero-image-placeholder img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .hero-image-fallback {
-            display: flex; flex-direction: column; align-items: center; gap: 12px;
-            color: var(--slate-400); font-size: 14px;
-        }
-        .hero-image-fallback svg { width: 48px; height: 48px; stroke: var(--navy-light); }
-        .hero-glow-bottom {
-            position: absolute; bottom: -2px; left: 0; right: 0; height: 120px;
-            background: linear-gradient(to top, var(--midnight), transparent);
+        /* ========== HERO ========== */
+        .hero { padding: 160px 0 80px; position: relative; overflow: hidden; }
+        .hero-glow {
+            position: absolute; top: -320px; left: 50%; transform: translateX(-50%);
+            width: 1000px; height: 900px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 62%);
             pointer-events: none;
         }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
+        .hero-grid > div, .review-grid > *, .grid-2 > *, .grid-3 > *, .grid-4 > *, .board > *, .step > * { min-width: 0; }
+        .step-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .mock-foot .mock-btn { white-space: nowrap; }
+        .quote-card { overflow-x: auto; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 999px; padding: 6px 14px; margin-bottom: 24px;
+            font-size: 13px; color: var(--cta); font-weight: 600;
+        }
+        .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cta); animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .hero h1 {
+            font-size: clamp(36px, 4.2vw, 56px); font-weight: 800; line-height: 1.06;
+            color: var(--text); margin-bottom: 22px; letter-spacing: -0.03em;
+        }
+        .hero h1 .accent { color: var(--accent); }
+        .hero-sub { font-size: clamp(17px, 1.6vw, 19px); max-width: 560px; margin: 0 0 32px; color: var(--text-muted); line-height: 1.65; }
+        .hero-sub strong { color: var(--text); font-weight: 600; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-meta { margin-top: 22px; font-size: 13px; color: var(--text-muted); }
+        .hero-meta a { font-weight: 600; }
+
+        /* Brief journey mock (demo workspace, synthetic data) */
+        .mock {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card);
+            overflow: hidden; font-size: 13px;
+        }
+        .mock-head {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2);
+        }
+        .mock-title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+        .avatar {
+            width: 28px; height: 28px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border);
+            display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text); flex-shrink: 0;
+        }
+        .mock-title b { color: var(--text); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mock-title small { display: block; color: var(--text-muted); font-size: 12px; font-weight: 400; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;
+        }
+        .pill-active { color: var(--accent); border: 1px solid rgba(6,182,212,0.4); }
+        .pill-wait { color: var(--violet); border: 1px solid rgba(167,139,250,0.45); }
+        .pill-you { color: #0B1220; background: var(--cta); }
+        .pill-ok { color: var(--success); border: 1px solid rgba(16,185,129,0.45); }
+        .pill-no { color: var(--danger); border: 1px solid rgba(244,63,94,0.45); }
+        .pill-muted { color: var(--text-muted); border: 1px solid var(--border); }
+        .mock-body { padding: 16px; display: grid; gap: 14px; }
+        .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .dir {
+            border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--surface-2);
+        }
+        .dir.selected { border-color: var(--accent); }
+        .dir-art { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; position: relative; }
+        .dir-art svg { width: 62%; height: auto; }
+        .dir-tag { position: absolute; top: 8px; left: 8px; }
+        .dir-meta { padding: 8px 10px; }
+        .dir-meta b { display: block; color: var(--text); font-weight: 600; font-size: 12px; }
+        .dir-meta span { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+        .steps { display: grid; gap: 6px; }
+        .step {
+            display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center;
+            padding: 8px 10px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border);
+        }
+        .step-n { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+        .step-label { color: var(--text); font-weight: 500; }
+        .step-label small { color: var(--text-muted); font-weight: 400; margin-left: 6px; }
+        .mock-foot { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .mock-btn {
+            padding: 7px 12px; border-radius: var(--r-btn); font-size: 12px; font-weight: 600; border: 1px solid var(--border); color: var(--text);
+        }
+        .mock-btn.primary { background: var(--accent-gradient); color: #0B1220; border-color: transparent; }
+        .mock-note { font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center; }
 
         /* ========== STATS ========== */
         .stats {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-            background: rgba(6, 182, 212, 0.08); border-radius: var(--radius-lg);
-            overflow: hidden; margin: 80px auto 0; max-width: 900px;
+            background: var(--border); border: 1px solid var(--border); border-radius: var(--r-card);
+            overflow: hidden; margin: 72px auto 0; max-width: 1000px;
         }
-        .stat { background: var(--navy); padding: 32px 24px; text-align: center; }
-        .stat-value {
-            font-size: 36px; font-weight: 800; color: var(--white);
-            font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em;
-        }
-        .stat-value .cyan { color: var(--cyan); }
-        .stat-label { font-size: 13px; color: var(--slate-400); margin-top: 6px; font-weight: 500; }
+        .stat { background: var(--surface); padding: 26px 20px; text-align: center; }
+        .stat-value { font-size: 30px; font-weight: 500; color: var(--text); font-family: var(--mono); letter-spacing: -0.02em; }
+        .stat-value .cyan { color: var(--accent); }
+        .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
 
         /* ========== SECTION COMMON ========== */
-        section { padding: 100px 0; }
+        section { padding: 96px 0; }
+        section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .section-label {
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--cyan); margin-bottom: 14px;
+            font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--accent); margin-bottom: 14px;
         }
-        .section-label svg { width: 16px; height: 16px; }
         .section-title {
-            font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--white);
+            font-size: clamp(30px, 3.6vw, 44px); font-weight: 800; color: var(--text);
             line-height: 1.1; margin-bottom: 14px; letter-spacing: -0.02em;
         }
-        .section-sub {
-            font-size: 17px; color: var(--slate-300); max-width: 580px; margin-bottom: 48px; line-height: 1.7;
-        }
+        .section-sub { font-size: 17px; color: var(--text-muted); max-width: 640px; margin-bottom: 44px; line-height: 1.65; }
+        .center { text-align: center; }
+        .center .section-sub { margin-left: auto; margin-right: auto; }
+        .center .section-label { justify-content: center; }
 
-        /* ========== PIPELINE ========== */
-        .pipeline-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        /* ========== CARDS ========== */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--r-card); padding: 24px;
+            transition: border-color 0.25s;
         }
-        .pipe-card {
-            background: var(--navy); border: 1px solid rgba(6, 182, 212, 0.06);
-            border-radius: var(--radius-lg); padding: 28px;
-            transition: border-color 0.25s, transform 0.25s; cursor: default;
-        }
-        .pipe-card:hover { border-color: rgba(6, 182, 212, 0.2); transform: translateY(-4px); }
-        .pipe-num {
+        section.alt .card { background: var(--bg); }
+        .card:hover { border-color: rgba(6, 182, 212, 0.45); }
+        .card h3 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+        .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        .num {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border-radius: 10px;
-            background: rgba(6, 182, 212, 0.08); color: var(--cyan);
-            font-weight: 700; font-size: 14px; font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 16px;
+            width: 34px; height: 34px; border-radius: 8px;
+            background: rgba(6, 182, 212, 0.1); color: var(--accent);
+            font-weight: 500; font-size: 13px; font-family: var(--mono); margin-bottom: 14px;
         }
-        .pipe-card h3 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-        .pipe-card p { font-size: 14px; color: var(--slate-300); line-height: 1.65; }
-        .pipe-tag {
-            display: inline-flex; align-items: center; gap: 4px;
-            margin-top: 14px; padding: 4px 10px;
-            background: rgba(34, 197, 94, 0.08); color: var(--green);
-            border-radius: 6px; font-size: 12px; font-weight: 600;
+        .gate {
+            display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+            font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--cta);
         }
-        .pipe-tag svg { width: 12px; height: 12px; }
+        .gate.none { color: var(--text-muted); }
+        .gate.client { color: var(--violet); }
+        .gate svg { width: 12px; height: 12px; }
+        .icon {
+            width: 40px; height: 40px; border-radius: 8px; background: rgba(6, 182, 212, 0.1);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+        }
+        .icon svg { width: 20px; height: 20px; stroke: var(--accent); }
 
-        /* ========== SHOWCASE ========== */
-        .showcase-section { background: var(--navy); }
-        .showcase-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-            align-items: center; margin-bottom: 64px;
-        }
-        .showcase-row:last-child { margin-bottom: 0; }
-        .showcase-row.reverse .showcase-prompt { order: 2; }
-        .showcase-row.reverse .showcase-images { order: 1; }
-        .showcase-prompt {
-            background: var(--midnight); border: 1px solid rgba(6, 182, 212, 0.08);
-            border-radius: var(--radius-lg); overflow: hidden;
-        }
-        .prompt-header {
-            display: flex; align-items: center; gap: 10px;
-            padding: 14px 20px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);
-            background: rgba(15, 23, 42, 0.5);
-        }
-        .prompt-dot {
-            width: 10px; height: 10px; border-radius: 50%;
-        }
-        .prompt-dot.green { background: var(--green); }
-        .prompt-dot.cyan { background: var(--cyan); }
-        .prompt-dot.amber { background: var(--amber); }
-        .prompt-label {
-            font-size: 13px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.06em; color: var(--slate-400);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .prompt-body {
-            padding: 20px; font-size: 14px; line-height: 1.9;
-            color: var(--slate-300);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .prompt-keyword {
-            color: var(--cyan); font-weight: 500;
-        }
-        .prompt-output {
-            display: flex; align-items: center; gap: 8px;
-            padding: 12px 20px; font-size: 12px; font-weight: 600;
-            color: var(--green); background: rgba(34, 197, 94, 0.04);
-            border-top: 1px solid rgba(34, 197, 94, 0.08);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .prompt-output svg { stroke: var(--green); flex-shrink: 0; }
-        .showcase-images {
-            display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;
-            height: 100%;
-        }
-        .showcase-img-large {
-            border-radius: var(--radius); overflow: hidden;
-            background: var(--midnight);
-        }
-        .showcase-img-large img {
-            width: 100%; height: 100%; object-fit: cover;
-            border-radius: var(--radius);
-            transition: transform 0.4s ease;
-        }
-        .showcase-img-large:hover img { transform: scale(1.03); }
-        .showcase-img-stack {
-            display: flex; flex-direction: column; gap: 12px;
-        }
-        .showcase-img-stack img {
-            width: 100%; height: 100%; object-fit: cover;
-            border-radius: var(--radius); background: var(--midnight);
-            transition: transform 0.4s ease;
-        }
-        .showcase-img-stack img:hover { transform: scale(1.03); }
+        /* ========== MODES ========== */
+        .mode { position: relative; }
+        .mode .cost { position: absolute; top: 20px; right: 20px; font-family: var(--mono); font-size: 13px; color: var(--text); }
+        .mode ul { list-style: none; margin-top: 14px; display: grid; gap: 8px; }
+        .mode li { display: flex; gap: 10px; font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+        .mode li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; stroke: var(--accent); }
+        .mode.pitch li svg { stroke: var(--cta); }
 
-        @media (max-width: 900px) {
-            .showcase-row { grid-template-columns: 1fr; }
-            .showcase-row.reverse .showcase-prompt { order: 1; }
-            .showcase-row.reverse .showcase-images { order: 2; }
-            .showcase-images { grid-template-columns: 1fr 1fr; max-height: 400px; }
-        }
-        @media (max-width: 768px) {
-            .showcase-images { grid-template-columns: 1fr; max-height: none; }
-            .showcase-img-stack { flex-direction: row; }
-            .showcase-img-stack img { aspect-ratio: 1; }
-        }
+        /* ========== RULES ========== */
+        .rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+        .rule { border-left: 2px solid var(--accent); padding-left: 14px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+        .rule b { display: block; color: var(--text); font-weight: 600; margin-bottom: 4px; }
 
-        /* ========== FEATURES ========== */
-        .features-section { background: var(--navy); }
-        .features-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        /* ========== CLIENT REVIEW + QUOTE ========== */
+        .review-grid { display: grid; grid-template-columns: 360px 1fr; gap: 32px; align-items: start; }
+        .phone {
+            width: 100%; max-width: 340px; margin: 0 auto;
+            border: 1px solid var(--border); border-radius: 28px; padding: 14px; background: var(--surface-2);
         }
-        .feat-card {
-            background: var(--midnight); border: 1px solid rgba(6, 182, 212, 0.05);
-            border-radius: var(--radius-lg); padding: 28px;
-            transition: border-color 0.25s; cursor: default;
-        }
-        .feat-card:hover { border-color: rgba(6, 182, 212, 0.15); }
-        .feat-icon {
-            width: 44px; height: 44px; border-radius: 11px;
-            background: rgba(6, 182, 212, 0.08); display: flex; align-items: center; justify-content: center;
-            margin-bottom: 16px;
-        }
-        .feat-icon svg { width: 22px; height: 22px; stroke: var(--cyan); }
-        .feat-card h3 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-        .feat-card p { font-size: 14px; color: var(--slate-300); line-height: 1.65; }
+        .phone-screen { background: var(--bg); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }
+        .phone-top { padding: 14px 16px 10px; border-bottom: 1px solid var(--border); }
+        .phone-top b { display: block; color: var(--text); font-size: 15px; font-weight: 600; }
+        .phone-top span { font-size: 12px; color: var(--text-muted); }
+        .item { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--border); font-size: 13px; }
+        .item .thumb { width: 44px; height: 44px; border-radius: 8px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; }
+        .item .thumb svg { width: 26px; height: 26px; }
+        .item b { display: block; color: var(--text); font-weight: 500; }
+        .item small { color: var(--text-muted); font-size: 12px; }
+        .phone-bar { display: flex; gap: 8px; padding: 12px 16px; }
+        .phone-bar .mock-btn { flex: 1; text-align: center; font-size: 13px; padding: 10px 8px; }
+        .quote-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); overflow: hidden; }
+        section.alt .quote-card { background: var(--bg); }
+        .quote-head { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .quote-head b { color: var(--text); font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { padding: 11px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+        td { color: var(--text-muted); }
+        td:first-child { color: var(--text); font-weight: 500; }
+        td.n, th.n { text-align: right; font-family: var(--mono); font-weight: 500; }
+        td.n { color: var(--text); }
+        tr:last-child td { border-bottom: none; }
+        .quote-foot { padding: 12px 20px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); }
+        .review-copy h3 { color: var(--text); font-size: 20px; font-weight: 600; margin: 0 0 8px; }
+        .review-copy p { font-size: 15px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
 
-        /* ========== COMPARISON ========== */
-        .compare-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 880px; margin: 0 auto;
-        }
-        .compare-card { border-radius: var(--radius-lg); padding: 36px; }
-        .compare-card.before {
-            background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.12);
-        }
-        .compare-card.after {
-            background: rgba(34, 197, 94, 0.04); border: 1px solid rgba(34, 197, 94, 0.12);
-        }
-        .compare-label {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-            margin-bottom: 16px;
-        }
-        .compare-label svg { width: 14px; height: 14px; }
-        .before .compare-label { color: var(--red); }
-        .before .compare-label svg { stroke: var(--red); }
-        .after .compare-label { color: var(--green); }
-        .after .compare-label svg { stroke: var(--green); }
-        .compare-card h3 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 16px; }
-        .compare-list { list-style: none; }
-        .compare-list li {
-            padding: 7px 0; font-size: 14px; display: flex; align-items: flex-start; gap: 10px;
-            line-height: 1.5;
-        }
-        .compare-list li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; }
-        .before .compare-list li svg { stroke: var(--red); }
-        .after .compare-list li svg { stroke: var(--green); }
+        /* ========== DEMO VIDEO ========== */
+        .video-wrap { max-width: 960px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--r-card); overflow: hidden; background: #000; }
+        .video-wrap video { display: block; width: 100%; aspect-ratio: 16 / 9; }
+        .video-links { text-align: center; margin-top: 16px; font-size: 14px; }
 
-        /* ========== WAITLIST ========== */
-        .waitlist-section { background: var(--navy); }
-        .waitlist-box { text-align: center; max-width: 540px; margin: 0 auto; }
-        .waitlist-form { display: flex; gap: 12px; margin-top: 32px; }
-        .waitlist-form input {
-            flex: 1; padding: 15px 20px; border-radius: var(--radius);
-            background: var(--midnight); border: 1px solid rgba(203, 213, 225, 0.12);
-            color: var(--white); font-size: 16px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        /* ========== CATALOGUE ========== */
+        .tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .tier { padding: 24px; border-radius: var(--r-card); border: 1px solid var(--border); background: var(--surface); }
+        section.alt .tier { background: var(--bg); }
+        .tier.verified { border-color: rgba(16,185,129,0.5); }
+        .tier h3 { color: var(--text); font-size: 17px; font-weight: 600; margin: 12px 0 8px; }
+        .tier p, .tier li { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        .tier ul { margin: 10px 0 0 18px; }
+        .catalogue-note { margin-top: 20px; padding: 16px 20px; border: 1px solid var(--border); border-radius: var(--r-card); font-size: 14px; color: var(--text-muted); background: var(--surface); }
+        section.alt .catalogue-note { background: var(--bg); }
+        .catalogue-note q { color: var(--text); font-style: italic; }
+
+        /* ========== NOT IN V1 ========== */
+        .notv1 { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .chip { padding: 6px 12px; border-radius: var(--r-chip); border: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+
+        /* ========== PRICING ========== */
+        .packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
+        .pack { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-card); padding: 28px; text-align: center; position: relative; }
+        .pack.featured { border-color: var(--accent); }
+        .pack .tag { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); }
+        .pack .credits { font-family: var(--mono); font-size: 34px; font-weight: 500; color: var(--text); letter-spacing: -0.02em; }
+        .pack .credits small { font-size: 16px; color: var(--text-muted); margin-left: 4px; }
+        .pack .price { font-family: var(--mono); font-size: 22px; color: var(--accent); margin: 8px 0 4px; }
+        .pack .per { font-size: 13px; color: var(--text-muted); font-family: var(--mono); }
+        .pack .fits { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+        .pricing-notes { max-width: 960px; margin: 24px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .pnote { border: 1px solid var(--border); border-radius: var(--r-card); padding: 16px 18px; font-size: 14px; color: var(--text-muted); background: var(--bg); }
+        .pnote b { color: var(--text); font-weight: 600; }
+        .pnote .mono { color: var(--text); }
+        .indicative { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+
+        /* ========== REQUEST ACCESS ========== */
+        .access-box { max-width: 560px; margin: 0 auto; text-align: center; }
+        .access-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; text-align: left; }
+        .access-form .full { grid-column: 1 / -1; }
+        .access-form label { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 6px; }
+        .access-form input {
+            width: 100%; padding: 13px 16px; border-radius: var(--r-btn);
+            background: var(--bg); border: 1px solid var(--border);
+            color: var(--text); font-size: 16px; font-family: var(--sans);
             outline: none; transition: border-color 0.2s;
         }
-        .waitlist-form input::placeholder { color: rgba(203, 213, 225, 0.3); }
-        .waitlist-form input:focus { border-color: var(--cyan); }
-        .waitlist-form button {
-            background: var(--gradient-green); color: var(--midnight);
-            padding: 15px 28px; border-radius: var(--radius);
-            font-weight: 700; font-size: 16px; border: none; cursor: pointer;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            white-space: nowrap; transition: transform 0.2s;
+        .access-form input::placeholder { color: rgba(148, 163, 184, 0.5); }
+        .access-form input:focus { border-color: var(--accent); }
+        .access-form button { width: 100%; justify-content: center; }
+        .hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+        .form-note { font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+        .form-msg {
+            display: none; padding: 14px 16px; margin-top: 18px; border-radius: var(--r-card);
+            font-size: 14px; line-height: 1.55; text-align: left;
         }
-        .waitlist-form button:hover { transform: translateY(-1px); }
-        .form-note { font-size: 13px; color: var(--slate-400); margin-top: 12px; }
-        .form-success {
-            display: none; padding: 16px; margin-top: 20px;
-            background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.15);
-            border-radius: var(--radius); color: var(--green); font-weight: 600;
-        }
+        .form-msg.ok { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.4); color: var(--text); }
+        .form-msg.fallback { background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.4); color: var(--text); }
+        .form-msg a { font-weight: 600; }
 
         /* ========== FOOTER ========== */
-        footer { border-top: 1px solid rgba(6, 182, 212, 0.06); padding: 48px 0; }
-        .footer-inner {
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
-        }
-        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        footer { border-top: 1px solid var(--border); padding: 40px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-brand { display: flex; align-items: center; gap: 8px; }
         .footer-brand .logo-mark { width: 28px; height: 28px; border-radius: 8px; }
         .footer-brand .logo-mark svg { width: 16px; height: 16px; }
         .footer-brand .logo-text { font-size: 16px; }
-        .footer-links { display: flex; gap: 24px; }
-        .footer-links a { color: var(--slate-400); font-size: 14px; cursor: pointer; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--white); }
-        .footer-copy { font-size: 13px; color: rgba(203, 213, 225, 0.3); }
+        .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-muted); font-size: 14px; }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 13px; color: var(--text-muted); opacity: 0.7; }
 
         /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero { padding-top: 140px; }
+            .grid-4, .rules { grid-template-columns: repeat(2, 1fr); }
+            .review-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 900px) {
-            .pipeline-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .packs, .pricing-notes { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             nav { top: 8px; left: 8px; right: 8px; }
             .nav-links { display: none; }
             .nav-links.open {
-                display: flex; flex-direction: column; position: absolute;
-                top: 64px; left: 0; right: 0;
-                background: rgba(15, 23, 42, 0.97); backdrop-filter: blur(16px);
-                border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-                padding: 16px 24px; gap: 16px;
-                border-top: 1px solid rgba(6, 182, 212, 0.08);
+                display: flex; flex-direction: column; align-items: flex-start; position: absolute;
+                top: 60px; left: 0; right: 0;
+                background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(16px);
+                border: 1px solid var(--border); border-top: none;
+                border-radius: 0 0 var(--r-card) var(--r-card);
+                padding: 16px 20px; gap: 14px;
             }
             .mobile-toggle { display: block; }
-            .hero { padding: 140px 0 60px; }
+            section { padding: 72px 0; }
+            .hero { padding: 120px 0 56px; }
+            .stats, .grid-4, .rules, .grid-2, .tiers { grid-template-columns: 1fr; }
             .stats { grid-template-columns: repeat(2, 1fr); }
-            .pipeline-grid, .features-grid { grid-template-columns: 1fr; }
-            .compare-grid { grid-template-columns: 1fr; }
-            .waitlist-form { flex-direction: column; }
+            .access-form { grid-template-columns: 1fr; }
             .footer-inner { flex-direction: column; text-align: center; }
-        }
-
-        /* ========== FOCUS STATES ========== */
-        a:focus-visible, button:focus-visible, input:focus-visible {
-            outline: 2px solid var(--cyan); outline-offset: 2px;
+            .footer-links { justify-content: center; }
+            .board { gap: 6px; }
+            th, td { padding: 10px 12px; }
         }
     </style>
 </head>
@@ -452,26 +423,29 @@
 <!-- NAV -->
 <nav role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-        <a href="/" class="logo" aria-label="ScalePod AI home">
-            <div class="logo-mark">
+        <a href="/" class="logo" aria-label="ScalePOD AI home">
+            <div class="logo-mark" aria-hidden="true">
                 <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10 2L17 7v8l-7 5-7-5V7l7-5z" stroke="#fff" stroke-width="1.5" fill="none"/>
                     <path d="M10 2v5m0 0l4 3m-4-3l-4 3" stroke="#fff" stroke-width="1.5" fill="none"/>
                 </svg>
             </div>
-            <div class="logo-text">Scale<span>Pod</span></div>
+            <div class="logo-text">Scale<span>POD</span></div>
+            <div class="logo-suffix">AI</div>
         </a>
         <div class="nav-links" id="navLinks">
-            <a href="#how-it-works">How It Works</a>
-            <a href="#showcase">Results</a>
-            <a href="#features">Features</a>
-            <a href="#waitlist" class="btn-nav">
-                Join Waitlist
-                <svg viewBox="0 0 18 18" fill="none" width="14" height="14"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <a href="#how-it-works">How it works</a>
+            <a href="#client-review">Client review</a>
+            <a href="#demo">Demo</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://app.scalepod.ai/login" class="login">Log in</a>
+            <a href="#request-access" class="btn-nav">
+                Request access
+                <svg viewBox="0 0 18 18" fill="none" width="14" height="14" aria-hidden="true"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </a>
         </div>
-        <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
-            <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button class="mobile-toggle" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false" onclick="toggleMenu(this)">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
     </div>
 </nav>
@@ -479,55 +453,150 @@
 <!-- HERO -->
 <section class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
-    <div class="container" style="position: relative; z-index: 1;">
-        <div class="hero-badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Early Access — Now Accepting Waitlist
-        </div>
-        <h1>Your POD<br><span class="accent">Command Center.</span></h1>
-        <p class="hero-sub">Design studio, product management, and seller optimization tools for Print-on-Demand businesses on Etsy and Shopify.</p>
-        <div class="hero-cta">
-            <a href="#waitlist">
-                <button class="btn-primary">
-                    Join the Waitlist
-                    <svg viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </button>
-            </a>
-            <a href="#how-it-works">
-                <button class="btn-secondary">
-                    <svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 7l3 2-3 2V7z" fill="currentColor"/></svg>
-                    See How It Works
-                </button>
-            </a>
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-badge">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    Early access for merch agencies
+                </div>
+                <h1>From brief to <span style="white-space: nowrap;">print-ready</span><br><span class="accent">in hours, not days.</span></h1>
+                <p class="hero-sub">ScalePOD AI turns a brief into a <strong>concept board</strong>, a <strong>client-approved design</strong>, <strong>print-ready files</strong> and a <strong>quote</strong>, in hours instead of days. Built for agencies that design every piece per client.</p>
+                <div class="hero-cta">
+                    <a href="#request-access" class="btn-primary">
+                        Request access
+                        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="#demo" class="btn-secondary">
+                        <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 7l3 2-3 2V7z" fill="currentColor"/></svg>
+                        Watch the 2-minute demo
+                    </a>
+                </div>
+                <p class="hero-meta">Already have a workspace? <a href="https://app.scalepod.ai/login">Log in</a></p>
+            </div>
+
+            <!-- Brief journey: demo workspace Kessel & Pine Merch for Aldervane Analytics. All data synthetic. -->
+            <div>
+                <div class="mock" aria-label="Example brief in the ScalePOD AI workspace (demo data)">
+                    <div class="mock-head">
+                        <div class="mock-title">
+                            <span class="avatar" aria-hidden="true">AA</span>
+                            <div>
+                                <b>Aldervane Analytics · Onboarding kit</b>
+                                <small>100 pcs · March · bottle, notebook, pen, tote, backpack, tee</small>
+                            </div>
+                        </div>
+                        <span class="pill pill-active">active</span>
+                    </div>
+                    <div class="mock-body">
+                        <div class="board" aria-label="Concept board, three directions">
+                            <div class="dir">
+                                <div class="dir-art" style="background:#F4EFE6;">
+                                    <svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><rect x="18" y="4" width="24" height="10" rx="3" fill="#0B3C5D"/><rect x="12" y="14" width="36" height="62" rx="9" fill="#0B3C5D"/><rect x="18" y="34" width="24" height="12" rx="2" fill="#F4EFE6"/><circle cx="30" cy="40" r="3" fill="#FF6B5B"/></svg>
+                                </div>
+                                <div class="dir-meta"><b>Direction 1 · Bold mark</b><span>bottle · 3ATMTK01</span></div>
+                            </div>
+                            <div class="dir selected">
+                                <div class="dir-art" style="background:#0B3C5D;">
+                                    <span class="pill pill-ok dir-tag">selected</span>
+                                    <svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><path d="M8 20l10-10h24l10 10v50a4 4 0 01-4 4H12a4 4 0 01-4-4V20z" fill="#F4EFE6"/><path d="M20 10h20l-4 8H24l-4-8z" fill="#E3DCCF"/><rect x="24" y="40" width="12" height="2" rx="1" fill="#0B3C5D"/><rect x="24" y="46" width="12" height="2" rx="1" fill="#FF6B5B"/><rect x="24" y="52" width="12" height="2" rx="1" fill="#0B3C5D"/></svg>
+                                </div>
+                                <div class="dir-meta"><b>Direction 2 · Quiet signal</b><span>tote · 2ABSST03</span></div>
+                            </div>
+                            <div class="dir">
+                                <div class="dir-art" style="background:#FF6B5B;">
+                                    <svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><path d="M20 12h20l6 6 10 4-4 12-6-2v42H14V32l-6 2-4-12 10-4 6-6z" fill="#F4EFE6"/><path d="M24 12h12a6 6 0 01-12 0z" fill="#E3DCCF"/><rect x="22" y="38" width="8" height="8" rx="2" fill="#0B3C5D"/></svg>
+                                </div>
+                                <div class="dir-meta"><b>Direction 3 · Field kit</b><span>tee · Bella+Canvas 3001</span></div>
+                            </div>
+                        </div>
+                        <div class="steps" aria-label="Brief progress">
+                            <div class="step"><span class="step-n">W2</span><span class="step-label">Concept board<small>3 directions</small></span><span class="pill pill-ok">approved</span></div>
+                            <div class="step"><span class="step-n">W4</span><span class="step-label">Print pack<small>4 items · 300 dpi</small></span><span class="pill pill-ok">approved</span></div>
+                            <div class="step"><span class="step-n">W6</span><span class="step-label">Client review<small>3 accepted · 1 rejected · 1 regenerate</small></span><span class="pill pill-you">waiting on you</span></div>
+                            <div class="step"><span class="step-n">W7</span><span class="step-label">Quote and deck<small>50 / 100 / 250 pcs</small></span><span class="pill pill-muted">next</span></div>
+                        </div>
+                    </div>
+                    <div class="mock-foot">
+                        <span class="mock-btn primary">Regenerate the tote · <span class="mono">4 cr</span></span>
+                        <span class="mock-btn">Open the review</span>
+                        <span class="mock-btn">Credits spent · <span class="mono">48 cr</span></span>
+                    </div>
+                </div>
+                <p class="mock-note">Demo workspace. Kessel &amp; Pine Merch and Aldervane Analytics are fictional; every number is synthetic.</p>
+            </div>
         </div>
 
-        <!-- Hero Image -->
-        <div class="hero-image">
-            <div class="hero-image-placeholder" id="heroImage">
-                <img src="images/hero-mirror.jpg"
-                     onerror="this.src='images/showcase/fox-lifestyle.jpg'; this.alt='ScalePod AI generated product — Enchanted Fox AOP Hoodie';"
-                     alt="ScalePod AI transforming a text prompt into a fully designed all-over-print hoodie — from wireframe pattern pieces to finished product worn by a model"
-                     loading="eager" width="1344" height="750" style="border-radius: var(--radius-xl);">
+        <div class="stats" role="list" aria-label="Key facts">
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">3–5</span></div>
+                <div class="stat-label">Directions per concept board</div>
             </div>
-            <div class="hero-glow-bottom" aria-hidden="true"></div>
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">300</span> dpi</div>
+                <div class="stat-label">Print file per position, to the supplier template</div>
+            </div>
+            <div class="stat" role="listitem">
+                <div class="stat-value"><span class="cyan">1</span> link</div>
+                <div class="stat-label">Client decisions on a phone, no login</div>
+            </div>
+            <div class="stat" role="listitem">
+                <div class="stat-value">≈ <span class="cyan">48</span> cr</div>
+                <div class="stat-label">A typical full brief, intake to quote</div>
+            </div>
         </div>
+    </div>
+</section>
 
-        <div class="stats" role="list" aria-label="Key metrics">
-            <div class="stat" role="listitem">
-                <div class="stat-value"><span class="cyan">7</span></div>
-                <div class="stat-label">Print zones per garment</div>
+<!-- JOBS TO BE DONE -->
+<section id="jobs">
+    <div class="container">
+        <div class="section-label">Who it is for</div>
+        <div class="section-title">Eight jobs a merch agency does for every client</div>
+        <div class="section-sub">If you design every piece per client, you already do all eight by hand. ScalePOD AI does them in one workspace, with a gate wherever your judgement matters.</div>
+        <div class="grid-4">
+            <div class="card"><div class="num">1</div><h3>Pull the brand</h3><p>Logo, palette and tone from the client's site and guidelines, in minutes.</p></div>
+            <div class="card"><div class="num">2</div><h3>Pitch without burning budget</h3><p>Research and a quick board for a prospect, capped per month.</p></div>
+            <div class="card"><div class="num">3</div><h3>Propose directions</h3><p>Across apparel and hard goods, on blanks you can source.</p></div>
+            <div class="card"><div class="num">4</div><h3>Steer in plain language</h3><p>Placement, size, colourway, swap the blank. No layer files.</p></div>
+            <div class="card"><div class="num">5</div><h3>Produce print-ready files</h3><p>To the supplier template, with realistic mockups.</p></div>
+            <div class="card"><div class="num">6</div><h3>Collect client decisions</h3><p>Accept, reject or regenerate per item, without email ping-pong.</p></div>
+            <div class="card"><div class="num">7</div><h3>Quote and hand over</h3><p>Tiered unit and landed costs, plus a deck.</p></div>
+            <div class="card"><div class="num">8</div><h3>Find and reuse</h3><p>Every past chat, concept, asset and approved design per client.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- MODES -->
+<section class="alt" id="modes">
+    <div class="container">
+        <div class="section-label">Two modes</div>
+        <div class="section-title">Pitch a prospect, or run a client brief</div>
+        <div class="section-sub">Same workspace, two budgets. Pitches are cheap and capped so a lost deal costs almost nothing. Client briefs run the full path with approvals.</div>
+        <div class="grid-2">
+            <div class="card mode pitch">
+                <span class="cost">≈ 6 cr, typical</span>
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l6-6M14 4l6 6-8 8-6-6 8-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3>Pitch mode</h3>
+                <p>For a prospect you have not won yet. No gates, one pitch card.</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Brand pulled from their site</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Demand and competitor findings, three bullets</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Quick board of 3 directions, one hero render each</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One recommendation. Pitch credits capped per month.</li>
+                </ul>
             </div>
-            <div class="stat" role="listitem">
-                <div class="stat-value"><span class="cyan">10</span></div>
-                <div class="stat-label">Professional listing images</div>
-            </div>
-            <div class="stat" role="listitem">
-                <div class="stat-value"><span class="cyan">3</span></div>
-                <div class="stat-label">Product tiers per design</div>
-            </div>
-            <div class="stat" role="listitem">
-                <div class="stat-value"><span class="cyan">2</span></div>
-                <div class="stat-label">Platform connections</div>
+            <div class="card mode">
+                <span class="cost">≈ 48 cr, typical</span>
+                <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 9h10M7 13h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                <h3>Client mode</h3>
+                <p>For a signed client. The full path, with a gate at every step that matters.</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Intake, concept board, steer and select</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Print pack and studio shots</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Client review on a magic link</li>
+                    <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Quote, cost table and deck</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -536,273 +605,239 @@
 <!-- HOW IT WORKS -->
 <section id="how-it-works">
     <div class="container">
-        <div class="section-label">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            How It Works
+        <div class="section-label">How it works</div>
+        <div class="section-title">Seven steps, each with a named gate</div>
+        <div class="section-sub">One conversation per brief. The agent does the work; the designer, the account manager or the client decides at each gate. Nothing paid runs before you see the cost.</div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="num">01</div>
+                <h3>Client intake</h3>
+                <p>Scrape the client's site plus uploaded guidelines and confirm the brand kit: logo, palette, tone. Flags a missing vector logo before it bites.</p>
+                <span class="gate"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/></svg>Gate: designer confirms</span>
+            </div>
+            <div class="card">
+                <div class="num">02</div>
+                <h3>Concept board</h3>
+                <p>Brief to 3–5 directions. Each product is mapped to a blank in the supplier catalogue, with a hero render and an indicative price per product.</p>
+                <span class="gate"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/></svg>Gate: designer picks</span>
+            </div>
+            <div class="card">
+                <div class="num">03</div>
+                <h3>Steer and select</h3>
+                <p>"Direction 2, left chest, small, navy tee." Placement and scale are parsed from plain language and only the affected items re-render.</p>
+                <span class="gate none"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Iterative, as many rounds as you need</span>
+            </div>
+            <div class="card">
+                <div class="num">04</div>
+                <h3>Print pack</h3>
+                <p>A 300 dpi PNG per print position to the supplier template, supplier mockups and a rules file. Optional check against Printify.</p>
+                <span class="gate"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/></svg>Gate: designer approves, 6-point checklist</span>
+            </div>
+            <div class="card">
+                <div class="num">05</div>
+                <h3>Studio shots</h3>
+                <p>Studio and lifestyle images from presets and slots, each with a QA score, for the deck and the review page.</p>
+                <span class="gate none"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>No gate</span>
+            </div>
+            <div class="card">
+                <div class="num">06</div>
+                <h3>Client review</h3>
+                <p>A magic-link page the client opens on a phone, no login. Accept, reject or regenerate per item. Decisions resume the run at the right step.</p>
+                <span class="gate client"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/></svg>Gate: client decides</span>
+            </div>
+            <div class="card">
+                <div class="num">07</div>
+                <h3>Quote and deck</h3>
+                <p>Supplier tiers, decoration, shipping and VAT assumptions feed a cost table and a deck as HTML and PDF, ready to send.</p>
+                <span class="gate"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/></svg>Gate: designer sends</span>
+            </div>
+            <div class="card">
+                <div class="num">+</div>
+                <h3>Status and usage</h3>
+                <p>What is waiting on whom, across every brief. Credits per client and per month, so account managers can bill the work.</p>
+                <span class="gate none"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Any time</span>
+            </div>
+            <div class="card">
+                <div class="num">↺</div>
+                <h3>Start from an approved design</h3>
+                <p>The asset library tags logos, approved designs and templates per client. A new brief can start from any of them.</p>
+                <span class="gate none"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Reuse</span>
+            </div>
         </div>
-        <div class="section-title">From Concept to Listing-Ready</div>
-        <div class="section-sub">A streamlined workflow with review gates at every step. You stay in control.</div>
 
-        <div class="pipeline-grid">
-            <div class="pipe-card">
-                <div class="pipe-num">01</div>
-                <h3>Design Studio</h3>
-                <p>Plan your design with niche research, color palettes, and composition guidance. Review and refine before any artwork is created.</p>
-            </div>
-            <div class="pipe-card">
-                <div class="pipe-num">02</div>
-                <h3>Artwork Creation</h3>
-                <p>Generate high-resolution artwork for all print areas. Preview each panel and request revisions until you're satisfied.</p>
-            </div>
-            <div class="pipe-card">
-                <div class="pipe-num">03</div>
-                <h3>Product Mockups</h3>
-                <p>See your design on professional product mockups — ghost mannequin, lifestyle, and detail shots. Approve before moving forward.</p>
-            </div>
-            <div class="pipe-card">
-                <div class="pipe-num">04</div>
-                <h3>Listing Optimization</h3>
-                <p>Research-backed keyword and tag ideas to inform your listing. Write your title and description with our SEO reference data at hand. You control every word.</p>
-            </div>
-            <div class="pipe-card">
-                <div class="pipe-num">05</div>
-                <h3>Pricing Intelligence</h3>
-                <p>Competitor analysis and margin calculator help you set the right price. You make the final call.</p>
-            </div>
-            <div class="pipe-card">
-                <div class="pipe-num">06</div>
-                <h3>Review & Publish</h3>
-                <p>Preview your complete listing. When you're happy, publish to your connected marketplace with one click.</p>
-            </div>
+        <div class="rules">
+            <div class="rule"><b>Cost before go</b>Paid steps run only after the agent states the credit cost and you say go.</div>
+            <div class="rule"><b>Nothing leaves the workspace</b>Except a review page the designer explicitly sends.</div>
+            <div class="rule"><b>Reproducible assets</b>Every asset records provider, prompt and cost, so a regeneration is repeatable.</div>
+            <div class="rule"><b>Catalogue is the truth</b>Blanks and prices come from the supplier catalogue. Printify is a verification proxy only.</div>
         </div>
     </div>
 </section>
 
-<!-- SHOWCASE: Prompt → Listing Images -->
-<section id="showcase" class="showcase-section">
+<!-- CLIENT REVIEW + QUOTE -->
+<section class="alt" id="client-review">
     <div class="container">
-        <div class="section-label" style="justify-content: center;">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4l6-2 6 2v8l-6 2-6-2V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 4l6 2 6-2M8 6v8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            Real Results
-        </div>
-        <div class="section-title" style="text-align: center;">Designs That Sell</div>
-        <div class="section-sub" style="text-align: center; margin: 0 auto 56px;">Real listing images created with ScalePOD — seller-reviewed and approved at every stage before publishing.</div>
-
-        <!-- Product 1: Enchanted Fox Hoodie -->
-        <div class="showcase-row">
-            <div class="showcase-prompt">
-                <div class="prompt-header">
-                    <div class="prompt-dot green"></div>
-                    <span class="prompt-label">AOP Hoodie</span>
-                </div>
-                <div class="prompt-body">
-                    <span class="prompt-keyword">theme:</span> Celestial Spirit Fox<br>
-                    <span class="prompt-keyword">style:</span> Mystical boho botanical line art<br>
-                    <span class="prompt-keyword">palette:</span> Deep navy, metallic gold, luminous silver, warm amber<br>
-                    <span class="prompt-keyword">front:</span> Fox curled on crescent moon branch with botanical motifs<br>
-                    <span class="prompt-keyword">back:</span> Enchanted forest scene, starlight nebula canopy<br>
-                    <span class="prompt-keyword">sleeves:</span> Gold vines, moon phases, constellations
-                </div>
-                <div class="prompt-output">
-                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    7 artwork drafts · 10 image candidates · listing suggestions · pricing — all seller-reviewed
+        <div class="section-label">What the client sees</div>
+        <div class="section-title">One link. Decisions per item. No email thread.</div>
+        <div class="section-sub">The designer sends a review page; the client opens it on a phone and decides per item. Each decision lands back in the brief and shows up on the account manager's board.</div>
+        <div class="review-grid">
+            <div class="phone" aria-label="Client review page, demo data">
+                <div class="phone-screen">
+                    <div class="phone-top"><b>Onboarding kit · review</b><span>Kessel &amp; Pine Merch for Aldervane Analytics</span></div>
+                    <div class="item"><span class="thumb"><svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><rect x="18" y="4" width="24" height="10" rx="3" fill="#0B3C5D"/><rect x="12" y="14" width="36" height="62" rx="9" fill="#0B3C5D"/><rect x="18" y="34" width="24" height="12" rx="2" fill="#F4EFE6"/></svg></span><span><b>Bottle</b><small>Quiet signal · wrap</small></span><span class="pill pill-ok">accepted</span></div>
+                    <div class="item"><span class="thumb"><svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><rect x="12" y="8" width="36" height="64" rx="4" fill="#F4EFE6"/><rect x="12" y="8" width="6" height="64" fill="#0B3C5D"/><rect x="26" y="30" width="16" height="2" fill="#0B3C5D"/><rect x="26" y="36" width="16" height="2" fill="#FF6B5B"/></svg></span><span><b>Notebook</b><small>Quiet signal · cover</small></span><span class="pill pill-ok">accepted</span></div>
+                    <div class="item"><span class="thumb"><svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><rect x="27" y="6" width="6" height="56" rx="2" fill="#0B3C5D"/><path d="M27 62h6l-3 12-3-12z" fill="#FF6B5B"/><rect x="27" y="20" width="6" height="2" fill="#F4EFE6"/></svg></span><span><b>Pen</b><small>barrel, one colour</small></span><span class="pill pill-ok">accepted</span></div>
+                    <div class="item"><span class="thumb"><svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><rect x="12" y="18" width="36" height="54" rx="8" fill="#0B3C5D"/><path d="M20 18a10 10 0 0120 0" stroke="#0B3C5D" stroke-width="4" fill="none"/><rect x="18" y="40" width="24" height="16" rx="3" fill="#FF6B5B"/></svg></span><span><b>Backpack</b><small>colourway</small></span><span class="pill pill-no">rejected</span></div>
+                    <div class="item"><span class="thumb"><svg viewBox="0 0 60 80" fill="none" aria-hidden="true"><path d="M8 20l10-10h24l10 10v50a4 4 0 01-4 4H12a4 4 0 01-4-4V20z" fill="#F4EFE6"/><path d="M20 10h20l-4 8H24l-4-8z" fill="#E3DCCF"/><rect x="24" y="44" width="12" height="2" fill="#FF6B5B"/></svg></span><span><b>Tote</b><small>"logo larger, centred"</small></span><span class="pill pill-wait">regenerate</span></div>
+                    <div class="phone-bar"><span class="mock-btn">Reject</span><span class="mock-btn">Regenerate</span><span class="mock-btn primary">Accept</span></div>
                 </div>
             </div>
-            <div class="showcase-images">
-                <div class="showcase-img-large">
-                    <img src="images/showcase/fox-lifestyle.jpg" alt="Enchanted Fox hoodie on model, front view with mystical boho design" loading="lazy" width="800" height="800">
-                </div>
-                <div class="showcase-img-stack">
-                    <img src="images/showcase/fox-closeup.jpg" alt="Enchanted Fox hoodie fabric closeup showing print quality" loading="lazy" width="800" height="800">
-                    <img src="images/showcase/fox-detail.jpg" alt="Enchanted Fox hoodie model closeup showing chest print detail" loading="lazy" width="800" height="800">
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 2: Serpentine Lunar Tee -->
-        <div class="showcase-row reverse">
-            <div class="showcase-prompt">
-                <div class="prompt-header">
-                    <div class="prompt-dot cyan"></div>
-                    <span class="prompt-label">AOP T-Shirt</span>
-                </div>
-                <div class="prompt-body">
-                    <span class="prompt-keyword">theme:</span> Serpentine Lunar Feminine Power<br>
-                    <span class="prompt-keyword">style:</span> Whimsigoth art nouveau, dark romantic<br>
-                    <span class="prompt-keyword">palette:</span> Deep wine burgundy, antique gold, dark forest, dusty rose<br>
-                    <span class="prompt-keyword">front:</span> Serpent coiling around crescent moon, belladonna vines<br>
-                    <span class="prompt-keyword">back:</span> Starfield nebula with serpent tail intertwining nightshade<br>
-                    <span class="prompt-keyword">sleeves:</span> Cascading belladonna, serpentine scales, moon phases
-                </div>
-                <div class="prompt-output">
-                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    7 artwork drafts · 10 image candidates · listing suggestions · pricing — all seller-reviewed
-                </div>
-            </div>
-            <div class="showcase-images">
-                <div class="showcase-img-large">
-                    <img src="images/showcase/serpent-lifestyle.jpg" alt="Serpentine Lunar t-shirt on female model, dark romantic art nouveau design" loading="lazy" width="800" height="800">
-                </div>
-                <div class="showcase-img-stack">
-                    <img src="images/showcase/serpent-closeup.jpg" alt="Serpentine Lunar t-shirt fabric closeup showing poison garden print" loading="lazy" width="800" height="800">
-                    <img src="images/showcase/serpent-back.jpg" alt="Serpentine Lunar t-shirt back view showing starfield nebula and serpentine vine design" loading="lazy" width="800" height="800">
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 3: Celestial Nouveau Owl Sweatshirt -->
-        <div class="showcase-row">
-            <div class="showcase-prompt">
-                <div class="prompt-header">
-                    <div class="prompt-dot amber"></div>
-                    <span class="prompt-label">AOP Sweatshirt</span>
-                </div>
-                <div class="prompt-body">
-                    <span class="prompt-keyword">theme:</span> Celestial Nouveau Owl<br>
-                    <span class="prompt-keyword">style:</span> Art Nouveau with mystical boho, Mucha-inspired<br>
-                    <span class="prompt-keyword">palette:</span> Deep indigo, rich gold, antique cream, deep teal<br>
-                    <span class="prompt-keyword">front:</span> Great-horned owl perched on crescent moon with ivy<br>
-                    <span class="prompt-keyword">back:</span> Celestial nebula flowing into ornate sun with moon phases<br>
-                    <span class="prompt-keyword">sleeves:</span> Art Nouveau ivy vines with golden stars and moon symbols
-                </div>
-                <div class="prompt-output">
-                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    7 artwork drafts · 10 image candidates · listing suggestions · pricing — all seller-reviewed
-                </div>
-            </div>
-            <div class="showcase-images">
-                <div class="showcase-img-large">
-                    <img src="images/showcase/owl-lifestyle.jpg" alt="Celestial Owl sweatshirt on female model, art nouveau boho design" loading="lazy" width="800" height="800">
-                </div>
-                <div class="showcase-img-stack">
-                    <img src="images/showcase/owl-closeup.jpg" alt="Celestial Owl sweatshirt fabric closeup showing print quality" loading="lazy" width="800" height="800">
-                    <img src="images/showcase/owl-detail.jpg" alt="Celestial Owl sweatshirt model closeup showing chest detail" loading="lazy" width="800" height="800">
+            <div class="review-copy">
+                <h3>Then the quote, from the same brief</h3>
+                <p>Supplier tiers, decoration, shipping and VAT assumptions are stated on the quote, so the account manager can defend every line. The deck exports as HTML and PDF.</p>
+                <div class="quote-card" aria-label="Quote, demo data">
+                    <div class="quote-head"><b>Quote · Onboarding kit · landed to DK</b><span class="pill pill-muted">demo data</span></div>
+                    <table>
+                        <thead><tr><th>Item</th><th class="n">50 pcs</th><th class="n">100 pcs</th><th class="n">250 pcs</th></tr></thead>
+                        <tbody>
+                            <tr><td>Bottle · wrap print</td><td class="n">€14.20</td><td class="n">€12.60</td><td class="n">€11.10</td></tr>
+                            <tr><td>Notebook · cover</td><td class="n">€6.40</td><td class="n">€5.70</td><td class="n">€5.10</td></tr>
+                            <tr><td>Pen · barrel</td><td class="n">€2.60</td><td class="n">€2.30</td><td class="n">€2.05</td></tr>
+                            <tr><td>Tote · one colour</td><td class="n">€18.90</td><td class="n">€17.40</td><td class="n">€15.80</td></tr>
+                            <tr><td>Tee · left chest</td><td class="n">€16.30</td><td class="n">€14.90</td><td class="n">€13.60</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="quote-foot">Unit prices per piece, delivered, excluding VAT. Supplier price tiers carry a captured-on date and are re-checked when older than 30 days. Figures above are synthetic.</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FEATURES -->
-<section id="features" class="features-section">
-    <div class="container">
-        <div class="section-label">
-            <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-            Features
+<!-- DEMO -->
+<section id="demo">
+    <div class="container center">
+        <div class="section-label">Demo</div>
+        <div class="section-title">Two minutes, one brief</div>
+        <div class="section-sub">A recorded walk-through of the path from brief to print-ready files and a review page.</div>
+        <div class="video-wrap">
+            <video controls playsinline preload="none" poster="https://tools.scalepod.ai/v/TFSTRtLiYcCy/poster.jpg" src="https://tools.scalepod.ai/v/TFSTRtLiYcCy/scalepod-ai.mp4" aria-label="ScalePOD AI demo video, 2 minutes 9 seconds">
+                Your browser does not play embedded video. <a href="https://tools.scalepod.ai/v/TFSTRtLiYcCy/">Open the demo</a>.
+            </video>
         </div>
-        <div class="section-title">Everything You Need to Run Your POD Business</div>
-        <div class="section-sub">A complete toolkit for designing, managing, and growing your print-on-demand shop.</div>
-
-        <div class="features-grid">
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 15l3-4 2 2 3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <h3>All-Over Print Design</h3>
-                <p>Design coordinated artwork across 7 print zones. Front, back, sleeves, hood — every panel works together.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 16l5-4 3 2 4-3 8 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <h3>Professional Listing Images</h3>
-                <p>10-slot image sets with ghost mannequin, lifestyle, and detail shots. Seller-approved before upload.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
-                <h3>SEO & Tag Research</h3>
-                <p>Keyword research and tag optimization powered by marketplace data. See what's working for top sellers in your niche.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 12l3-9h12l3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12h18v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="16" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
-                </div>
-                <h3>Niche Templates</h3>
-                <p>Niche-focused product templates with curated style guides — Japanese art, celestial boho, cottagecore, tarot, and more.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <h3>Multi-Tier Listings</h3>
-                <p>One design, three price points. AOP tee, sweatshirt, and hoodie from the same artwork. Maximize revenue per design.</p>
-            </div>
-            <div class="feat-card">
-                <div class="feat-icon">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <h3>Analytics Dashboard</h3>
-                <p>Track listing performance, monitor competitors, and identify opportunities to optimize your shop.</p>
-            </div>
-        </div>
+        <div class="video-links"><a href="https://tools.scalepod.ai/v/TFSTRtLiYcCy/" target="_blank" rel="noopener">Open the demo in a new tab</a> · 2:09</div>
     </div>
 </section>
 
-<!-- COMPARISON -->
-<section>
+<!-- CATALOGUE RULE -->
+<section class="alt" id="catalogue">
     <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;">
-            <div class="section-label" style="justify-content: center;">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                The Difference
-            </div>
-            <div class="section-title">Work Smarter, Not Harder</div>
-        </div>
-
-        <div class="compare-grid">
-            <div class="compare-card before">
-                <div class="compare-label">
-                    <svg viewBox="0 0 14 14" fill="none"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                    Without ScalePOD
-                </div>
-                <h3>Hours of manual work per product</h3>
-                <ul class="compare-list">
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Hire a designer or wrestle Photoshop yourself</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Pay $15–50 per mockup set or use free templates everyone has</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Manually research keywords and niche trends</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>No data on competitor pricing — guesswork every time</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>Limited to 2–3 new products per week</li>
+        <div class="section-label">Supplier catalogue</div>
+        <div class="section-title">Print files only on verified blanks</div>
+        <div class="section-sub">Suppliers disagree on print areas and leave out shipping, prices or millimetres. So the catalogue has two tiers, and only one of them may produce a print file.</div>
+        <div class="tiers">
+            <div class="tier verified">
+                <span class="pill pill-ok">verified</span>
+                <h3>Verified blank</h3>
+                <p>Print-area template confirmed against the supplier's spec, one test render and one test print file checked, price tiers and shipping captured with a date, confirmation questions answered.</p>
+                <ul>
+                    <li>Shown on the board, usable by any brief</li>
+                    <li>Print files and mockups allowed</li>
+                    <li>v1 set: bottle, notebook, pen, tote, backpack, tee, cap across Yoycol, PeaPrint and Printify</li>
                 </ul>
             </div>
-            <div class="compare-card after">
-                <div class="compare-label">
-                    <svg viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    With ScalePOD
-                </div>
-                <h3>Design it. Review it. List it.</h3>
-                <ul class="compare-list">
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>SEO suggestions based on top-performing listings in your niche</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Professional mockups you review and approve</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Pricing recommendations backed by competitor data</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Publish when you're satisfied — your timing, your decision</li>
-                    <li><svg viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>More time for the creative decisions that matter</li>
+            <div class="tier">
+                <span class="pill pill-muted">candidate</span>
+                <h3>Candidate blank</h3>
+                <p>Parsed from the supplier page or API, not yet checked. Fine for discovery and pricing conversations; never for a print file.</p>
+                <ul>
+                    <li>Proposed only when flagged "needs verification"</li>
+                    <li>No print file until an operator promotes it</li>
+                    <li>Promotion is a one-blank onboarding with a recorded date</li>
                 </ul>
             </div>
         </div>
+        <div class="catalogue-note">A brief asking for a product outside the verified catalogue gets <q>not in the catalogue yet, I can queue it for onboarding</q>, never a guess.</div>
+
+        <div style="margin-top: 48px;">
+            <div class="section-label">Honest scope</div>
+            <h3 style="color: var(--text); font-size: 20px; font-weight: 600;">Not in v1</h3>
+            <div class="notv1">
+                <span class="chip">All-over print</span>
+                <span class="chip">AI model consistency across shots</span>
+                <span class="chip">Marketing content</span>
+                <span class="chip">Supplier order placement</span>
+                <span class="chip">Shopify or WooCommerce publishing</span>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- WAITLIST -->
-<section id="waitlist" class="waitlist-section">
-    <div class="container">
-        <div class="waitlist-box">
-            <div class="section-label" style="justify-content: center;">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Get Early Access
+<!-- PRICING -->
+<section id="pricing" class="alt" style="border-top: none;">
+    <div class="container center">
+        <div class="section-label">Pricing</div>
+        <div class="section-title">Credits, not seats</div>
+        <div class="section-sub">Every workspace includes credits. Buy a pack when you need more. Every paid step states its cost before it runs, so a brief never costs more than you agreed to.</div>
+        <div class="packs">
+            <div class="pack">
+                <div class="credits">100<small>cr</small></div>
+                <div class="price">€49</div>
+                <div class="per">€0.49 per credit</div>
+                <div class="fits">About two full briefs, or a month of pitches.</div>
             </div>
-            <div class="section-title">Be first in line.</div>
-            <p style="color: var(--slate-300); font-size: 17px; line-height: 1.7;">Join the waitlist for early access to ScalePOD's design studio and seller tools.</p>
+            <div class="pack featured">
+                <span class="pill pill-active tag" style="background: var(--surface);">most agencies</span>
+                <div class="credits">300<small>cr</small></div>
+                <div class="price">€129</div>
+                <div class="per">€0.43 per credit</div>
+                <div class="fits">About six full briefs plus pitches.</div>
+            </div>
+            <div class="pack">
+                <div class="credits">1,000<small>cr</small></div>
+                <div class="price">€349</div>
+                <div class="per">€0.35 per credit</div>
+                <div class="fits">About twenty full briefs. For agencies running several clients a month.</div>
+            </div>
+        </div>
+        <div class="pricing-notes">
+            <div class="pnote"><b>Included credits with every workspace.</b> You start with a balance; packs top it up.</div>
+            <div class="pnote"><b>What a credit buys.</b> A pitch ≈ <span class="mono">6 cr</span>. A full brief, intake to quote, ≈ <span class="mono">48 cr</span>.</div>
+            <div class="pnote"><b>No subscription.</b> Credits do not expire with a billing cycle. Top up by card when you run low.</div>
+        </div>
+        <div class="indicative">Pack prices are indicative until launch. Early-access workspaces keep their included credits.</div>
+    </div>
+</section>
 
-            <form class="waitlist-form" id="waitlistForm" onsubmit="handleWaitlist(event)">
-                <label for="waitlistEmail" class="sr-only">Email address</label>
-                <input type="email" id="waitlistEmail" placeholder="you@example.com" required aria-label="Email address">
-                <button type="submit">Join Waitlist</button>
+<!-- REQUEST ACCESS -->
+<section id="request-access">
+    <div class="container">
+        <div class="access-box">
+            <div class="section-label" style="justify-content: center;">Early access</div>
+            <div class="section-title">Request access</div>
+            <p style="font-size: 17px; line-height: 1.65;">Tell us where to send the invite. We onboard a few agencies at a time so each one gets a working catalogue for its blanks.</p>
+
+            <form class="access-form" id="accessForm" novalidate>
+                <div class="full">
+                    <label for="accessEmail">Work email</label>
+                    <input type="email" id="accessEmail" name="email" placeholder="you@agency.com" required autocomplete="email">
+                </div>
+                <div class="full">
+                    <label for="accessCompany">Agency</label>
+                    <input type="text" id="accessCompany" name="company" placeholder="Agency name" required autocomplete="organization">
+                </div>
+                <div class="hp" aria-hidden="true">
+                    <label for="accessWebsite">Website</label>
+                    <input type="text" id="accessWebsite" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="full">
+                    <button type="submit" class="btn-primary" id="accessSubmit">Request access</button>
+                </div>
             </form>
-            <div class="form-note">We respect your privacy. Unsubscribe anytime.</div>
-            <div class="form-success" id="formSuccess" role="alert">
-                You're on the list! We'll be in touch with early access details.
+            <div class="form-note">No newsletter. We reply from a person. Already have a workspace? <a href="https://app.scalepod.ai/login">Log in</a></div>
+            <div class="form-msg ok" id="accessOk" role="status">Request received. We will be in touch with your invite.</div>
+            <div class="form-msg fallback" id="accessFallback" role="status">
+                The request service is not reachable right now, so we opened an email instead. If nothing opened, write to <a id="accessMailto" href="mailto:gergely@startleadflowautomation.com">gergely@startleadflowautomation.com</a> with your agency name.
             </div>
         </div>
     </div>
@@ -813,72 +848,90 @@
     <div class="container">
         <div class="footer-inner">
             <div class="footer-brand">
-                <div class="logo-mark">
+                <div class="logo-mark" aria-hidden="true">
                     <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L17 7v8l-7 5-7-5V7l7-5z" stroke="#fff" stroke-width="1.5" fill="none"/><path d="M10 2v5m0 0l4 3m-4-3l-4 3" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
                 </div>
-                <div class="logo-text">Scale<span>Pod</span></div>
+                <div class="logo-text">Scale<span>POD</span></div>
+                <div class="logo-suffix">AI</div>
             </div>
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:hello@scalepod.ai">Contact</a>
+                <a href="https://app.scalepod.ai/login">Log in</a>
+                <a href="#request-access">Request access</a>
+                <a href="privacy.html">Privacy policy</a>
+                <a href="terms.html">Terms of service</a>
+                <a href="mailto:gergely@startleadflowautomation.com">Contact</a>
             </div>
-            <div class="footer-copy">&copy; 2026 ScalePOD. All rights reserved.</div>
+            <div class="footer-copy">&copy; 2026 ScalePOD AI. All rights reserved.</div>
         </div>
     </div>
 </footer>
 
-<!-- SR-ONLY utility -->
-<style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }</style>
-
 <script>
-// Supabase config — swap these when deploying to cloud
-const SUPABASE_URL = 'https://jtptaswggfdgzmuifnzi.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0cHRhc3dnZ2ZkZ3ptdWlmbnppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MTgzMjUsImV4cCI6MjA1ODA5NDMyNX0.Xt8T0-BWPF_UalROgCRHrd4JC4AJmHgnEvbLLFLbNsM';
+function toggleMenu(btn) {
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+document.querySelectorAll('#navLinks a').forEach(function (a) {
+    a.addEventListener('click', function () {
+        document.getElementById('navLinks').classList.remove('open');
+        document.querySelector('.mobile-toggle').setAttribute('aria-expanded', 'false');
+    });
+});
 
-async function handleWaitlist(e) {
+// Request access: POST JSON to the app; if the app or its DNS is not reachable, fall back to a prefilled email.
+var ACCESS_ENDPOINT = 'https://app.scalepod.ai/sp/api/register/request';
+var CONTACT_EMAIL = 'gergely@startleadflowautomation.com';
+
+document.getElementById('accessForm').addEventListener('submit', async function (e) {
     e.preventDefault();
-    const email = document.getElementById('waitlistEmail').value.trim();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const note = document.querySelector('.form-note');
-    const success = document.getElementById('formSuccess');
+    var form = e.target;
+    var email = form.email.value.trim();
+    var company = form.company.value.trim();
+    var website = form.website.value.trim(); // honeypot: humans leave it empty
+    var btn = document.getElementById('accessSubmit');
+    var ok = document.getElementById('accessOk');
+    var fb = document.getElementById('accessFallback');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.email.focus(); form.email.reportValidity(); return; }
+    if (!company) { form.company.focus(); form.company.reportValidity(); return; }
 
     btn.disabled = true;
-    btn.textContent = 'Joining...';
+    btn.textContent = 'Sending…';
 
+    var payload = { email: email, company: company, source: 'website', website: website };
+    var sent = false;
     try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+        var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timer = controller ? setTimeout(function () { controller.abort(); }, 8000) : null;
+        var res = await fetch(ACCESS_ENDPOINT, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apikey': SUPABASE_ANON_KEY,
-                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify({ email, source: 'website' })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: controller ? controller.signal : undefined
         });
-
-        if (res.ok) {
-            document.getElementById('waitlistForm').style.display = 'none';
-            success.style.display = 'block';
-            note.style.display = 'none';
-        } else if (res.status === 409) {
-            // Duplicate email
-            document.getElementById('waitlistForm').style.display = 'none';
-            success.textContent = "You're already on the list! We'll be in touch soon.";
-            success.style.display = 'block';
-            note.style.display = 'none';
-        } else {
-            throw new Error(`Server error: ${res.status}`);
-        }
+        if (timer) clearTimeout(timer);
+        sent = res.ok || res.status === 409; // 409 = already requested
     } catch (err) {
-        // Fallback — show success anyway (email lost, but don't block UX)
-        console.error('Waitlist signup error:', err);
-        document.getElementById('waitlistForm').style.display = 'none';
-        success.style.display = 'block';
-        note.style.display = 'none';
+        sent = false;
     }
-}
+
+    if (sent) {
+        form.style.display = 'none';
+        ok.style.display = 'block';
+        return;
+    }
+
+    // Fallback: prefilled email to the existing contact address.
+    var subject = 'ScalePOD AI access request: ' + company;
+    var body = 'Agency: ' + company + '\nWork email: ' + email + '\nSource: website\n';
+    var href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('accessMailto').setAttribute('href', href);
+    fb.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Request access';
+    window.location.href = href;
+});
 </script>
 
 </body>
